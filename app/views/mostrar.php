@@ -69,11 +69,22 @@
                     <div class="row">
                         <form name="buscar" class="form" method="POST" action="buscar_tarea.php">
                             <div class="form-group">
-                                <label>Para una busqueda personalizada introduce al menos un dato sobre la tarea</label>
-                                <hr>
-                                <p>Descripcion: <input type="text" name="descripcion" value="">
-                                Operario: <input type="text" name="operario" value="">
-                                Estado: <input type="text" name="estado" value=""></p>
+                                <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label>
+                               	<br><br>
+                                <p>
+                                Condicion: <select name="condicion">
+								<option></option>
+								<option value=">">Mayor que</option>
+								<option value="<">Menor que</option>
+								<option value="=">Igual que</option>
+								</select>
+                                Campo a filtrar: <select name="campo">
+								  <option></option>
+								  <option value="operario">operario</option>
+								  <option value="fecha_creacion">fecha de creacion</option>
+								  <option value="descripcion">descripcion</option>
+								</select>
+								</p>
                             </div>
                             <input type="submit" class="btn btn-success" name="busca" value="FILTRAR">
                     </div>                  
