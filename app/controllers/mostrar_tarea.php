@@ -1,8 +1,9 @@
 <?php
     /*Aqui controlaremos la paginacion y pediremos la consulta al modelo*/
     include('..\\models\\funciones.php');
-    //Elementos de paginación
+
     define ('PROXPAG', 5);
+    //Elementos de paginación
 
     if (isset($_GET['pag']))//si ya esta navegando dejamos la que está sino la primera
     {

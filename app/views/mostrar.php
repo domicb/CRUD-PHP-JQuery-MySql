@@ -67,7 +67,7 @@
                             <p><span class="pull-right"><h5>Lista actualizada a <?php echo date("F j, Y, g:i a");?></h5></span></p>						
                     <hr>
                     <div class="row">
-                        <form name="buscar" class="form" method="POST" action="buscar_tarea.php">
+                        <form name="buscar" class="form" method="POST" action="../controllers/mostrar_tarea.php">
                             <div class="form-group">
                                 <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label>
                                	<br><br>
@@ -127,6 +127,7 @@
                 <?php if ($pag<$maxPag-1) :?> 
                     <a href="?pag=<?=$pag+1?>">Siguiente</a>
                 <?php endif;?>
+                <?php echo 'Pagina '.$pag?>
                     </P>
             </div>
 
