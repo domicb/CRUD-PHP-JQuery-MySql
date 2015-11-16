@@ -22,9 +22,11 @@
 
     $posIni=(($pag-1)*PROXPAG);
 
-    $posIni = getPosicion($pag,$maxPag,PROXPAG);   
+    $posIni = getPosicion($pag,$maxPag,PROXPAG);  
 
-    require('..\\views\\mostrar.php');
+    $tareas = getTareas($posIni,PROXPAG); 
+
+    include('..\\views\\mostrar.php');
      
 
 

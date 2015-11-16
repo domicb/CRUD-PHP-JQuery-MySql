@@ -109,7 +109,7 @@ function getProvincias()
 /**
  * Devuelve el nombre de la provincia recibiendo como parametro el id de esta
  */
-function muestraProvincia($idprov)
+function getProvincia($idprov)
 {
 	$bd = Db::getInstance(); 
 	$prov="select nombre from provincia where idprovincia =".$idprov;
@@ -122,7 +122,7 @@ function muestraProvincia($idprov)
     return $devu;
 }
 
-function mostrarTareas($Ini,$Final)
+function getTareas($Ini,$Final)
 {
     /*Creamos la instancia del objeto. Ya estamos conectados*/
     $bd=Db::getInstance();
@@ -131,56 +131,27 @@ function mostrarTareas($Ini,$Final)
     //echo "<p>SQL: $sql</p>"; lo utilizamos para ver la consulta en la vista
     /*Ejecutamos la query*/
     $rs=$bd->Consulta($sql);
-    
-    /*$row=$bd->LeeRegistro() <-- While */
-	 while ($row=$bd->LeeRegistro($rs))
-	 { 		
-	 		echo '<tr>';
-			echo '<td>'.$row['descripcion'].'</td>';
-            echo '<td>'.$row['operario'].'</td>';
-            echo '<td>'.$row['telefono'].'</td>'; 
-            //sacamos el id de la provincia el cual nos sirve para preguntar por su nombre                         
-            echo '<td>'.muestraProvincia($row['idprovincia']).'</td>';                                                         
-                
-			echo '<td>'.$row['direccion'].'</td>';
-            echo '<td>'.$row['poblacion'].'</td>';
-            echo '<td>'.getEstado($row['estado']).'</td>';
-            echo '<td>'.$row['fecha_creacion'].'</td>';
-            echo '<td>'.$row['fecha_realizacion'].'</td>';
 
-			echo '<td><a href="modificar.php?id='.$row['idtarea'].'"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;<a href="eliminar.php?id='.$row['idtarea'].'"><span class="glyphicon glyphicon-remove"></span></a></td>';
-			echo '<tr>';
-	} 
+    $tareas = array();
+	while ($row=$bd->LeeRegistro($rs))
+	{
+		$tareas[] = $row;
+	}
+    return $tareas;
 }
 
-	function mostrarProvincias($Ini,$Final)
-	{
-		/*Creamos la instancia del objeto. Ya estamos conectados*/
-    $bd=Db::getInstance();
-    /*Creamos una query sencilla*/
-    $sql='SELECT * FROM provincia LIMIT ' . $Ini . ', ' . $Final;
-    echo "<p>SQL: $sql</p>";
-    /*Ejecutamos la query*/
-    $bd->Consulta($sql);
-	 while ($row=$bd->LeeRegistro())
-	 { 		echo '<tr>';
-			echo '<td>'.$row['nombre'].'</td>';
-            echo '<td>'.$row['idprovincia'].'</td>';
-            echo '</tr>';
-	 } 
-	}
     
 	/**
 	 * Devuelve el numero registros de la consulta indicada
 	 */
-	function NRegistros()
-	{
+function NRegistros()
+{
 		$bd=Db::getInstance();
 		$query ="SELECT count(*) as total FROM tarea";
 		$bd->Consulta($query);
 		$res=$bd->LeeRegistro();
 		return $res['total'];
-	}
+}
 
 	function getPosicion($pa,$max,$num)
 	{

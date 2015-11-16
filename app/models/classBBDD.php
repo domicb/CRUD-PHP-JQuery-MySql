@@ -102,6 +102,7 @@ Class Db {
 		$this->consulta($sql);
 	}
 
+
 	/**
 	 * Devuelve el siguiente registro del result set devuelto por una consulta.
 	 * 

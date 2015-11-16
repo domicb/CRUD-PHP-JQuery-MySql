@@ -106,14 +106,28 @@
                 			</tr>
                 				<tbody>
                                     <tr>
-                                    <?php
-
-            						echo mostrarTareas($posIni,PROXPAG);
-
-                                    ?>
-
+                                <?php foreach ($tareas as $row) : ?>                                      
                                     <tr>
-            					</tbody>
+                                    <td> <?php echo $row['descripcion'];?> </td>
+                                    <td> <?php echo $row['operario'];?> </td>
+                                    <td> <?php echo $row['telefono'];?> </td>
+                                    <!-- sacamos el id de la provincia el cual nos sirve para preguntar por su nombre  -->                         
+                                    <td> <?php echo getProvincia($row['idprovincia']);?> </td>             
+                                            
+                                    <td> <?php echo $row['direccion'];?> </td>
+                                    <td> <?php echo $row['poblacion'];?> </td>
+                                    <td> <?php echo getEstado($row['estado']);?> </td>
+                                    <td> <?php echo $row['fecha_creacion'];?> </td>
+                                    <td> <?php echo $row['fecha_realizacion'];?> </td>
+                                    <td><a href="modificar.php?id='.$row['idtarea'].'">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>&nbsp;&nbsp;<a href="eliminar.php?id='.$row['idtarea'].'">
+                                    <span class="glyphicon glyphicon-remove"></span></a></td>
+                                    <tr>
+                                <?php endforeach; ?> 
+                            
+                                    <tr>
+            				</tbody>
             		</table>                         
                                                          
                         </div>
