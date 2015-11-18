@@ -65,7 +65,9 @@ else
 		$campos['idprovincia']=$_POST['provincia'];
 
 		inserta('tarea',$campos);
-		echo 'Se ha insertado una nueva tarea satisfactoriamente';
+
+		echo '<br><br><h1>Se ha insertado una nueva tarea satisfactoriamente</h1><br><br>';
+		echo '<a href="mostrar_tarea.php">Pulsa para volver a ver la lista de tareas</a>';
 	}
 	else
 	{

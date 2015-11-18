@@ -140,6 +140,20 @@ function getTareas($Ini,$Final)
     return $tareas;
 }
 
+function buscaTarea($campo,$condicion,$dato)
+{
+	$bd=Db::getInstance();
+	$sql='SELECT * FROM tarea WHERE ' . $campo .' '. $condicion .' '. $dato;
+
+	$rs=$bd->Consulta($sql);
+	$tareasfil = array();
+	while($row=$bd->LeeRegistro($rs))
+	{
+		$tareasfil[] = $row;
+	}
+	return $tareasfil;
+}
+
     
 	/**
 	 * Devuelve el numero registros de la consulta indicada

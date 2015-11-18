@@ -59,7 +59,7 @@ Class Db {
 	 */
 	public function Consulta($sql)
 	{
-		//echo "<pre>Consulta: $sql</pre>"; muestra la consulta
+		//echo "<pre>Consulta: $sql</pre>"; 
 		$this->result=$this->link->query($sql);
 		if (! $this->result ) {
 			$this->ShowError();
@@ -148,9 +148,10 @@ Class Db {
 	 * @param string $campos
 	 * @return array|NULL
 	 */
-	public function LeeUnRegistro($tabla, $condicion, $campos='*')
+	public function LeeUnRegistro($campo, $condicion, $dato)
 	{
-		$sql="select $campos from $tabla where $condicion limit 1";
+		$sql="select tarea from $tabla where $campo $condicion $dato";
+		//echo '<pre>SQL: $sql</pre>';
 		$rs=$this->link->query($sql);
 		if($rs)
 		{

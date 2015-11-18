@@ -72,18 +72,19 @@
                                 <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label>
                                	<br><br>
                                 <p>
+                                Campo a filtrar: <select name="campo">
+                                  <option></option>
+                                  <option value="operario">operario</option>
+                                  <option value="fecha_creacion">fecha de creacion</option>
+                                  <option value="descripcion">descripcion</option>
+                                </select>
                                 Condicion: <select name="condicion">
 								<option></option>
 								<option value=">">Mayor que</option>
 								<option value="<">Menor que</option>
 								<option value="=">Igual que</option>
 								</select>
-                                Campo a filtrar: <select name="campo">
-								  <option></option>
-								  <option value="operario">operario</option>
-								  <option value="fecha_creacion">fecha de creacion</option>
-								  <option value="descripcion">descripcion</option>
-								</select>
+                                Campo buscado: <input type="text" name="dato" />
 								</p>
                             </div>
                             <input type="submit" class="btn btn-success" name="busca" value="FILTRAR">
@@ -95,6 +96,8 @@
             				<tr><!--tabla de tareas-->
             					<td><b>Descripcion</b></td>
             					<td><b>Operario</b></td>
+                                <td><b>Nombre</b></td>
+                                <td><b>Codigo Postal</b></td>
                                 <td><b>Telefono</b></td>
                                 <td><b>Provincia</b></td>
                                 <td><b>Direccion</b></td>
@@ -106,10 +109,12 @@
                 			</tr>
                 				<tbody>
                                     <tr>
-                                <?php foreach ($tareas as $row) : ?>                                      
+                                <?php foreach ($tarea as $row) : ?>                                      
                                     <tr>
                                     <td> <?php echo $row['descripcion'];?> </td>
                                     <td> <?php echo $row['operario'];?> </td>
+                                    <td> <?php echo $row['nombre'];?> </td>
+                                    <td> <?php echo $row['cod_postal'];?> </td>
                                     <td> <?php echo $row['telefono'];?> </td>
                                     <!-- sacamos el id de la provincia el cual nos sirve para preguntar por su nombre  -->                         
                                     <td> <?php echo getProvincia($row['idprovincia']);?> </td>             
