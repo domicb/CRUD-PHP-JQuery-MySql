@@ -66,29 +66,36 @@
                         <p><h3>Resultado de Tareas:</h3></p>
                             <p><span class="pull-right"><h5>Lista actualizada a <?php echo date("F j, Y, g:i a");?></h5></span></p>						
                     <hr>
-                    <div class="row">
+                    <div class="row"><!--ROW DEL FORMULARIO-->
                         <form name="buscar" class="form" method="POST" action="../controllers/mostrar_tarea.php">
-                            <div class="form-group">
-                                <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label>
-                               	<br><br>
-                                <p>
-                                Campo a filtrar: <select name="campo">
-                                  <option></option>
-                                  <option value="operario">operario</option>
-                                  <option value="fecha_creacion">fecha de creacion</option>
-                                  <option value="descripcion">descripcion</option>
-                                </select>
-                                Condicion: <select name="condicion">
-								<option></option>
-								<option value=">">Mayor que</option>
-								<option value="<">Menor que</option>
-								<option value="=">Igual que</option>
-								</select>
-                                Campo buscado: <input type="text" name="dato" />
-								</p>
-                            </div>
-                            <input type="submit" class="btn btn-success" name="busca" value="FILTRAR">
-                    </div>                  
+                                <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label><br>
+                                <div class="col-md-2">
+                                    Operario: <input type="text" name="operario">
+                                    <select name="condicion_operario">
+                                      <option></option>
+                                      <option value="="> IGUAL </option>
+                                      <option value="!="> DIFERENTE </option>
+                                      <option value="%"> Que empieze </option>
+                                    </select>
+                                </div><div class="col-md-2">
+                                    Fecha Creacion: <input type="text" name="creacion">
+                                    <select name="condicion_creacion">
+    								<option></option>
+    								<option value=">"> MAYOR </option>
+    								<option value="<"> MENOR </option>
+    								<option value="="> IGUAL </option>
+    								</select>
+                                </div><div class="col-md-2">
+                                    Email: <input type="text" name="dato" />
+                                    <select name="condicion_operario">
+                                        <option></option>
+                                        <option value="="> IGUAL </option>
+                                        <option value="%"> Que contenga </option>
+                                    </select>
+                                </div>
+                        <!-- AQUI TERMINAN LOS CAMPOS Y SE ENCUENTRA EL BOTON DEL FORMULARIO-->                      
+                            <input type="submit" class="btn btn-success" name="busca" value="FILTRAR">   
+                    </div>                            
                     <div class="row">
                         <div class="col-md-3 .col-md-offset-3">
                      <table class="table table-striped">
@@ -141,12 +148,12 @@
                 </div>
                 <P>
                 <?php if ($pag>1): ?>
-                    <a href="?pag=<?=$pag-1?>">Anterior</a>
+                    <a href="?pag=<?=$pag-1?>">  Anterior</a>
                 <?php endif; ?>
-                <?php if ($pag<$maxPag-1) :?> 
-                    <a href="?pag=<?=$pag+1?>">Siguiente</a>
-                <?php endif;?>
                 <?php echo 'Pagina '.$pag?>
+                <?php if ($pag<$maxPag-1) :?> 
+                    <a href="?pag=<?=$pag+1?>">  Siguiente</a>
+                <?php endif;?>
                     </P>
             </div>
 

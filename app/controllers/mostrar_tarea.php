@@ -31,8 +31,7 @@
         $condicion=$_POST['condicion'];
         $campo=$_POST['campo'];
         $dato="'".$_POST['dato']."'";
-        $tarea = buscaTarea($campo,$condicion,$dato);
-       
+        $tarea = buscaTarea($campo,$condicion,$dato);  
     }
     else
     {
