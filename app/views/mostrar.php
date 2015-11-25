@@ -68,7 +68,7 @@
                     <hr>
                     <div class="row"><!--ROW DEL FORMULARIO-->
                         <form name="buscar" class="form" method="POST" action="../controllers/mostrar_tarea.php">
-                                <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label><br>
+                            <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label><br>
                                 <div class="col-md-2">
                                     Operario: <input type="text" name="operario">
                                     <select name="condicion_operario">
@@ -80,14 +80,14 @@
                                 </div><div class="col-md-2">
                                     Fecha Creacion: <input type="text" name="creacion">
                                     <select name="condicion_creacion">
-    								<option></option>
-    								<option value=">"> MAYOR </option>
-    								<option value="<"> MENOR </option>
-    								<option value="="> IGUAL </option>
+        								<option></option>
+        								<option value=">"> MAYOR </option>
+        								<option value="<"> MENOR </option>
+        								<option value="="> IGUAL </option>
     								</select>
                                 </div><div class="col-md-2">
-                                    Email: <input type="text" name="dato" />
-                                    <select name="condicion_operario">
+                                    Email: <input type="text" name="ema">
+                                    <select name="condicion_email">
                                         <option></option>
                                         <option value="="> IGUAL </option>
                                         <option value="%"> Que contenga </option>
@@ -131,14 +131,13 @@
                                     <td> <?php echo getEstado($row['estado']);?> </td>
                                     <td> <?php echo $row['fecha_creacion'];?> </td>
                                     <td> <?php echo $row['fecha_realizacion'];?> </td>
-                                    <td><a href="modificar.php?id='.$row['idtarea'].'">
+                                    <td><a href="../controllers/modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
                                     <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>&nbsp;&nbsp;<a href="eliminar.php?id='.$row['idtarea'].'">
+                                    </a>&nbsp;&nbsp;<a href="modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
                                     <span class="glyphicon glyphicon-remove"></span></a></td>
-                                    <tr>
                                 <?php endforeach; ?> 
-                            
-                                    <tr>
+                                </tr>
+                        
             				</tbody>
             		</table>                         
                                                          

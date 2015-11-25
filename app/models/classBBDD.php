@@ -50,7 +50,6 @@ Class Db {
 		$this->link->select_db($conf['base_datos']);
 		$this->link->query("SET NAMES 'utf8'");
 	}
-
 	
 	/**
 	 * Ejecuta una consulta SQL y devuelve el resultado de esta
@@ -59,7 +58,7 @@ Class Db {
 	 */
 	public function Consulta($sql)
 	{
-		//echo "<pre>Consulta: $sql</pre>"; 
+		echo "<pre>Consulta: $sql</pre>"; 
 		$this->result=$this->link->query($sql);
 		if (! $this->result ) {
 			$this->ShowError();
@@ -101,7 +100,6 @@ Class Db {
 		
 		$this->consulta($sql);
 	}
-
 
 	/**
 	 * Devuelve el siguiente registro del result set devuelto por una consulta.

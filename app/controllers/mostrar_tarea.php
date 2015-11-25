@@ -25,13 +25,19 @@
 
     $posIni = getPosicion($pag,$maxPag,PROXPAG); 
 
-    //si se busca filtrando datos 
+    //si se busca filtrando datos NOS FALTA FILTRAR LOS CAMPOS
     if(isset($_POST['busca']))
     {
-        $condicion=$_POST['condicion'];
-        $campo=$_POST['campo'];
-        $dato="'".$_POST['dato']."'";
-        $tarea = buscaTarea($campo,$condicion,$dato);  
+        $email="'".$_POST['ema']."'";
+        /*$fecha="'".$_POST['fec']."'";
+        $operario="'".$_POST['ope']."'";
+        $condicion = '';*/
+        if(isset($email))
+        {
+            $condicion = $_POST['condicion_email'];
+            $tarea = buscaTarea('email',$condicion,$email);
+        }
+         
     }
     else
     {
