@@ -23,15 +23,29 @@
 
     $posIni=(($pag-1)*PROXPAG);
 
-    $posIni = getPosicion($pag,$maxPag,PROXPAG); 
+    $posIni = getPosicionInicial($pag,$maxPag,PROXPAG); 
 
     //si se busca filtrando datos NOS FALTA FILTRAR LOS CAMPOS
     if(isset($_POST['busca']))
     {
+        $eml = $_POST['ema'];
+        $ope = $_POST['operario'];
+        $fec = $_POST['creacion'];
+
+        if($eml != '' && $ope != '' && $fec != '')//si se filtra por los tres campos
+        {
+            $con_eml = $_POST['condicion_email'];
+            $con_fec = $_POST['condicion_creacion'];
+            $con_ope = $_POST['condicion_operario'];
+            //mandamos los campos con sus correspondientes condiciones
+            $tarea = tresCampos($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
+        }
+        else
+        {   
+             $tarea = unSoloCampo($eml,$ope,$fec);   
+        }      
         $email="'".$_POST['ema']."'";
-        /*$fecha="'".$_POST['fec']."'";
-        $operario="'".$_POST['ope']."'";
-        $condicion = '';*/
+
         if(isset($email))
         {
             $condicion = $_POST['condicion_email'];
@@ -45,7 +59,5 @@
     }  
 
     include('..\\views\\mostrar.php');
-     
-
 
 ?>

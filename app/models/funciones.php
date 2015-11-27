@@ -182,7 +182,7 @@ require('classBBDD.php');
 			return $res['total'];
 	}
 
-	function getPosicion($pa,$max,$num)
+	function getPosicionInicial($pa,$max,$num)
 	{
         if ($pa<1 || $pa>$max)
             $pa=1;
@@ -202,5 +202,71 @@ require('classBBDD.php');
 		$res = $bd->update('tarea',$camposTarea,$cond);
 		
 		return $res;
+	}
+	
+	function unSoloCampo($eml,$ope,$fec)
+	{
+        $tar = Array();
+        //si solo se filtra por email
+        if($eml != '' && $ope =='' && $fec == '') 
+        {
+            $condicion=$_POST['condicion_email'];
+            if($condicion == 'like')
+            {
+                $eml = "'%".$eml."%'";
+                $tar = buscaTarea('email',$condicion,$eml);  
+            }
+
+            $eml = "'".$eml."'";
+            $tar = buscaTarea('email',$condicion,$eml); 
+        } 
+        //si se filtra solo por operario
+        if($ope != '' && $eml =='' && $fec == '') 
+        {
+            $condicion=$_POST['condicion_operario'];
+            if($condicion =='like')
+            {
+                $ope = "'".$ope."%'";
+                $tar = buscaTarea('operario',$condicion,$ope);  
+            }
+            $ope = "'".$ope."'";
+            $tar = buscaTarea('operario',$condicion,$ope);  
+           
+        } 
+        //si se filtra solo por fecha
+        if($fec != '' && $ope =='' && $eml == '') 
+        {
+            $condicion=$_POST['condicion_creacion'];
+
+                $fec = "'".$_POST['creacion']."'";
+            
+            $tar = buscaTarea('fecha_creacion',$condicion,$fec);  
+        } 
+        return $tar;
+	}
+	/**
+	*$tareasfiltro será el array devuelto con los resultados
+	*esta funcion crea el sql correspondiende y lo manda al modelo para obtener el resultado
+	*/
+	function tresCampos($eml,$con_ema,$ope,$con_ope,$fec,$con_fec)
+	{
+		$tareasfiltro = array();
+		//le damos formato a la busqueda del operario
+		$ope = "'".$ope."'";
+		if($con_ema == 'like')
+        {
+            $eml = "'".$eml."%'";
+        }
+
+		$bd=Db::getInstance();
+		$sql='SELECT * FROM tarea WHERE email '. $con_ema .' '. $eml .' AND operario '. $con_ope .' '. $ope .' AND fecha_creacion '. $con_fec .' '. $fec;
+
+		$rs=$bd->Consulta($sql);
+		
+		while($row=$bd->LeeRegistro($rs))
+		{
+			$tareasfiltro[] = $row;
+		}
+		return $tareasfiltro;
 	}
 ?>
