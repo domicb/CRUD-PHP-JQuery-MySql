@@ -203,7 +203,7 @@ require('classBBDD.php');
 		
 		return $res;
 	}
-	
+
 	function unSoloCampo($eml,$ope,$fec)
 	{
         $tar = Array();
@@ -216,9 +216,9 @@ require('classBBDD.php');
                 $eml = "'%".$eml."%'";
                 $tar = buscaTarea('email',$condicion,$eml);  
             }
-
-            $eml = "'".$eml."'";
-            $tar = buscaTarea('email',$condicion,$eml); 
+            else
+            {            	$eml = "'".$eml."'";
+           	    $tar = buscaTarea('email',$condicion,$eml);          }         
         } 
         //si se filtra solo por operario
         if($ope != '' && $eml =='' && $fec == '') 
@@ -229,20 +229,41 @@ require('classBBDD.php');
                 $ope = "'".$ope."%'";
                 $tar = buscaTarea('operario',$condicion,$ope);  
             }
-            $ope = "'".$ope."'";
-            $tar = buscaTarea('operario',$condicion,$ope);  
-           
+            else{     $ope = "'".$ope."'";
+            $tar = buscaTarea('operario',$condicion,$ope);          }       
         } 
         //si se filtra solo por fecha
         if($fec != '' && $ope =='' && $eml == '') 
         {
             $condicion=$_POST['condicion_creacion'];
-
-                $fec = "'".$_POST['creacion']."'";
+            $fec = "'".$_POST['creacion']."'";
             
             $tar = buscaTarea('fecha_creacion',$condicion,$fec);  
         } 
         return $tar;
+	}
+
+	/*
+	*Recoje las condiciones y si existe nos devuelve la cadena correspondiente
+	*/
+	function CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec)
+	{
+		$condiciones = array();
+
+		if(! EMPTY($con_eml))
+		{
+			$condiciones['eml'] = ' email '. $con_eml . ' '."'". $eml ."'";
+		}
+		if(! EMPTY($con_ope))
+		{
+			$condiciones['ope'] = ' operario '. $con_ope . ' '."'". $ope."'";
+		}
+		if(! EMPTY($con_fec))
+		{
+			$condiciones['fec'] = ' fecha_creacion '. $con_fec . ' '. $fec;
+		}
+
+		return  implode(' AND ', $condiciones);	
 	}
 	/**
 	*$tareasfiltro será el array devuelto con los resultados
@@ -257,6 +278,10 @@ require('classBBDD.php');
         {
             $eml = "'".$eml."%'";
         }
+        else
+        {
+        	$eml="'".$eml."'";
+        }
 
 		$bd=Db::getInstance();
 		$sql='SELECT * FROM tarea WHERE email '. $con_ema .' '. $eml .' AND operario '. $con_ope .' '. $ope .' AND fecha_creacion '. $con_fec .' '. $fec;
@@ -268,5 +293,34 @@ require('classBBDD.php');
 			$tareasfiltro[] = $row;
 		}
 		return $tareasfiltro;
+	}
+
+	function dosCampos($vari)
+	{
+		$tareasfiltro = array();
+
+		$bd=Db::getInstance();
+		$sql='SELECT * FROM tarea WHERE '.$vari;
+
+		$rs=$bd->Consulta($sql);
+		
+		while($row=$bd->LeeRegistro($rs))
+		{
+			$tareasfiltro[] = $row;
+		}
+		return $tareasfiltro;
+	}
+
+	function numFiltro($lista)
+	{
+		$numero = 0;
+		for ($i=0; $i <3 ; $i++) { 
+			
+			if($lista[$i] != '')
+			{
+				$numero++;
+			}
+		}
+		return $numero;
 	}
 ?>

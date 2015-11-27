@@ -41,17 +41,25 @@
             $tarea = tresCampos($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
         }
         else
-        {   
-             $tarea = unSoloCampo($eml,$ope,$fec);   
-        }      
-        $email="'".$_POST['ema']."'";
+        {   //primero averiguamos por cuantos campos se filtra
+            $list = array();
+            $list[0] = $eml;
+            $list[1] = $ope;
+            $list[2] = $fec;
 
-        if(isset($email))
-        {
-            $condicion = $_POST['condicion_email'];
-            $tarea = buscaTarea('email',$condicion,$email);
-        }
-         
+            $num = numFiltro($list);
+            if($num == 2)
+            {
+                $con_eml = $_POST['condicion_email'];
+                $con_fec = $_POST['condicion_creacion'];
+                $con_ope = $_POST['condicion_operario'];
+                $consult = CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
+
+                $tarea = dosCampos($consult);
+            }
+            else// BUSCA POR UN SOLO CAMPO
+                {    $tarea = unSoloCampo($eml,$ope,$fec);      }              
+        }              
     }
     else
     {

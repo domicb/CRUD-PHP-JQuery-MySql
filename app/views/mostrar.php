@@ -75,7 +75,7 @@
                                       <option></option>
                                       <option value="="> IGUAL </option>
                                       <option value="!="> DIFERENTE </option>
-                                      <option value="%"> Que empieze </option>
+                                      <option value="like"> Que empieze </option>
                                     </select>
                                 </div><div class="col-md-2">
                                     Fecha Creacion: <input type="text" name="creacion">
@@ -90,7 +90,7 @@
                                     <select name="condicion_email">
                                         <option></option>
                                         <option value="="> IGUAL </option>
-                                        <option value="%"> Que contenga </option>
+                                        <option value="like"> Que contenga </option>
                                     </select>
                                 </div>
                         <!-- AQUI TERMINAN LOS CAMPOS Y SE ENCUENTRA EL BOTON DEL FORMULARIO-->                      
