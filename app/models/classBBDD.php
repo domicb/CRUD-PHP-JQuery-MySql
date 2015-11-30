@@ -94,7 +94,7 @@ Class Db {
 			$valores[]= $campo.' ="'.addslashes($valor).'"';
 		}
 		
-		$sql="update $table SET ".
+		$sql="update $tabla SET ".
 				implode(',', $valores).
 			  "where ".$cond;
 		

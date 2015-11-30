@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Shop Item - Start Bootstrap Template</title>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -56,7 +55,7 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
+        
 
             <div class="col-md-3"><br>
                 <p class="lead">Menú</p>
@@ -70,19 +69,15 @@
                 </div>
             </div><br>
             <!--         cabecera        -->
-                <div class="well">
-                        <p><h2>Nueva Tarea</h2></p>                           
+                
+                        <p><h2>Completar Tarea</h2></p>                           
                     <hr> 
-
-                    <div class="col-md-9">
-
+                  
+                 <div class="row">
+                    <div class="col-md-8">
+                        
                     <!-- FORMULARIO -->
-						<form name="nuevo_usuario" class="form" method="POST" action="nueva_tarea.php">
-				             <div class="form-group"><!-- PROVINCIAS -->
-                                <?=CreaSelect(); 
-                                if( isset($array_errores['provincia']) )
-                                    { VerError('provincia'); }?>
-                            </div>
+                    <form name="nuevo_usuario" class="form" method="POST" action="nueva_tarea.php">              
                             <!-- radio estado -->
                             <div class="form-group">
                                 <p><b>Selecciona el estado de la tarea:</b>
@@ -97,63 +92,18 @@
                                 </label> <?php if( isset($array_errores['estado']) )
                                     { VerError('estado'); }?>   </p>
                             </div>
-                                    
-                            <!-- CAMPO FECHA -->
-                                <div class="form-group">
-                                <b>Fecha de creación:</b> <input class="form-control" type="date" name="fecha_creacion" step="1" min="2015-11-9" max="2020-12-31" value="<?php echo date("Y-m-d");?>" />
-                                    <?php if( isset($array_errores['fecha_creacion']) )
-                                    { VerError('fecha_creacion'); }?>                      
-                                </div>
-                            <!-- AQUI EMPIEZAN LOS CAMPOS -->        
-                                <div class="form-group">									
-									<input class="form-control" type="text" name="nombre" value="<?=ValorPost('nombre')?>" placeholder="Nombre"/>
-									<?php if( isset($array_errores['vacio1']) )
-                                    { VerError('vacio1'); }?>	
-                                </div>
-                                <div class="form-group">		
-									<input type="text" class="form-control" name="apellidos" value="<?=ValorPost('apellidos')?>" placeholder="Apellidos"/>
-                                    <?php if( isset($array_errores['vacio1']) )
-                                    { VerError('vacio1'); }?>
-                                </div>
-                                <div class="form-group">
-    								<input type="text" name="telefono" class="form-control" value="<?=ValorPost('telefono')?>" placeholder="telefono"/>
-    								<?php if( isset($array_errores['telefono']) )
-                                    { VerError('telefono'); }?>	
-								</div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="email" value="<?=ValorPost('email')?>" placeholder="email"/>
-    								<?php if( isset($array_errores['email']) )
-                                    { VerError('email'); }?>
-                                </div>
-								<div class="form-group">								
-									<input type="text" name="direccion" class="form-control" value="<?=ValorPost('direccion')?>" placeholder="direccion"/>
-                                </div>
-                                <div class="form-group">
-									<input type="text" name="poblacion" class="form-control" value="<?=ValorPost('poblacion')?>" placeholder="Poblacion"/>  
-								</div>
-                                <div class="form-group">
-									<input type="text" name="cod_postal" class="form-control" value="<?=ValorPost('cod_postal')?>" placeholder="Codigo Postal"/>
-                                    <?php if( isset($array_errores['cod_postal']) )
-                                    { VerError('cod_postal'); }?>
-                                </div>
-                                <div class="form-group">
-									<input type="text" class="form-control" class="form-control" name="operario" value="<?=ValorPost('operario')?>" placeholder="Operario"/>
-								</div>
+                                 
                                 <div class="form-group">
                                     <input type="text" class="form-control"  name="anotaciones_anteriores" value="<?=ValorPost('descripcion')?>" placeholder="Anotaciones" />
                                 </div>
-                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="descripcion" value="<?=ValorPost('descripcion')?>" placeholder="Descripcion de la tarea" />
-                                    <?php if( isset($array_errores['vacio']) )
-                                    {      VerError('vacio'); }?>                       
-                                </div>
-								<hr> <center><input type="submit" name="guardar" value="Registrar" /></center>
+
+			<hr> <center><input type="submit" name="completar" value="Completar" /></center>
 																
-						</form>
+			</form>
                         
                     </div>
-
-                </div>
+                 </div>   
+                
 
             </div>
 
@@ -187,4 +137,7 @@
 </html>
 
 	
+
+
+
 

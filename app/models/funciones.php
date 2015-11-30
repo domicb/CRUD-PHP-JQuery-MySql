@@ -175,19 +175,19 @@ require('classBBDD.php');
 	 */
 	function NRegistros()
 	{
-			$bd=Db::getInstance();
-			$query ="SELECT count(*) as total FROM tarea";
-			$bd->Consulta($query);
-			$res=$bd->LeeRegistro();
-			return $res['total'];
+                $bd=Db::getInstance();
+                $query ="SELECT count(*) as total FROM tarea";
+                $bd->Consulta($query);
+                $res=$bd->LeeRegistro();
+                return $res['total'];
 	}
 
 	function getPosicionInicial($pa,$max,$num)
 	{
-        if ($pa<1 || $pa>$max)
-            $pa=1;
-        $res = (($pa-1)*$num);
-        return $res;
+            if ($pa<1 || $pa>$max)
+            {$pa = 1;}
+            $res = (($pa-1)*$num);
+            return $res;
 	}
 
 	function inserta($tabla,$campos)
@@ -203,45 +203,22 @@ require('classBBDD.php');
 		
 		return $res;
 	}
-
-	function unSoloCampo($eml,$ope,$fec)
-	{
-        $tar = Array();
-        //si solo se filtra por email
-        if($eml != '' && $ope =='' && $fec == '') 
+        function condicionE($eml,$con_eml)
         {
-            $condicion=$_POST['condicion_email'];
-            if($condicion == 'like')
+            if($con_eml == 'like')
             {
-                $eml = "'%".$eml."%'";
-                $tar = buscaTarea('email',$condicion,$eml);  
+                $eml = "%".$eml."%";
             }
-            else
-            {            	$eml = "'".$eml."'";
-           	    $tar = buscaTarea('email',$condicion,$eml);          }         
-        } 
-        //si se filtra solo por operario
-        if($ope != '' && $eml =='' && $fec == '') 
+            return $eml;
+        }
+        function condicionO($ope,$con_ope)
         {
-            $condicion=$_POST['condicion_operario'];
-            if($condicion =='like')
+            if($con_ope == 'like')
             {
-                $ope = "'".$ope."%'";
-                $tar = buscaTarea('operario',$condicion,$ope);  
+                    $ope = $ope."%";
             }
-            else{     $ope = "'".$ope."'";
-            $tar = buscaTarea('operario',$condicion,$ope);          }       
-        } 
-        //si se filtra solo por fecha
-        if($fec != '' && $ope =='' && $eml == '') 
-        {
-            $condicion=$_POST['condicion_creacion'];
-            $fec = "'".$_POST['creacion']."'";
-            
-            $tar = buscaTarea('fecha_creacion',$condicion,$fec);  
-        } 
-        return $tar;
-	}
+            return $ope;
+        }
 
 	/*
 	*Recoje las condiciones y si existe nos devuelve la cadena correspondiente
@@ -249,14 +226,16 @@ require('classBBDD.php');
 	function CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec)
 	{
 		$condiciones = array();
+                $em = condicionE($eml,$con_eml);
+                $op = condicionO($ope,$con_ope);
 
 		if(! EMPTY($con_eml))
 		{
-			$condiciones['eml'] = ' email '. $con_eml . ' '."'". $eml ."'";
+			$condiciones['eml'] = ' email '. $con_eml . ' '."'". $em ."'";
 		}
 		if(! EMPTY($con_ope))
 		{
-			$condiciones['ope'] = ' operario '. $con_ope . ' '."'". $ope."'";
+			$condiciones['ope'] = ' operario '. $con_ope . ' '."'". $op."'";
 		}
 		if(! EMPTY($con_fec))
 		{
@@ -267,35 +246,9 @@ require('classBBDD.php');
 	}
 	/**
 	*$tareasfiltro será el array devuelto con los resultados
-	*esta funcion crea el sql correspondiende y lo manda al modelo para obtener el resultado
+	*la funcion recoje las condicones a buscar y devuelve la consulta
 	*/
-	function tresCampos($eml,$con_ema,$ope,$con_ope,$fec,$con_fec)
-	{
-		$tareasfiltro = array();
-		//le damos formato a la busqueda del operario
-		$ope = "'".$ope."'";
-		if($con_ema == 'like')
-        {
-            $eml = "'".$eml."%'";
-        }
-        else
-        {
-        	$eml="'".$eml."'";
-        }
-
-		$bd=Db::getInstance();
-		$sql='SELECT * FROM tarea WHERE email '. $con_ema .' '. $eml .' AND operario '. $con_ope .' '. $ope .' AND fecha_creacion '. $con_fec .' '. $fec;
-
-		$rs=$bd->Consulta($sql);
-		
-		while($row=$bd->LeeRegistro($rs))
-		{
-			$tareasfiltro[] = $row;
-		}
-		return $tareasfiltro;
-	}
-
-	function dosCampos($vari)
+	function filtramos($vari)
 	{
 		$tareasfiltro = array();
 
@@ -311,16 +264,3 @@ require('classBBDD.php');
 		return $tareasfiltro;
 	}
 
-	function numFiltro($lista)
-	{
-		$numero = 0;
-		for ($i=0; $i <3 ; $i++) { 
-			
-			if($lista[$i] != '')
-			{
-				$numero++;
-			}
-		}
-		return $numero;
-	}
-?>

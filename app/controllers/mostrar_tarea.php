@@ -32,34 +32,13 @@
         $ope = $_POST['operario'];
         $fec = $_POST['creacion'];
 
-        if($eml != '' && $ope != '' && $fec != '')//si se filtra por los tres campos
-        {
-            $con_eml = $_POST['condicion_email'];
-            $con_fec = $_POST['condicion_creacion'];
-            $con_ope = $_POST['condicion_operario'];
-            //mandamos los campos con sus correspondientes condiciones
-            $tarea = tresCampos($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
-        }
-        else
-        {   //primero averiguamos por cuantos campos se filtra
-            $list = array();
-            $list[0] = $eml;
-            $list[1] = $ope;
-            $list[2] = $fec;
+        $con_eml = $_POST['condicion_email'];
+        $con_fec = $_POST['condicion_creacion'];
+        $con_ope = $_POST['condicion_operario'];
 
-            $num = numFiltro($list);
-            if($num == 2)
-            {
-                $con_eml = $_POST['condicion_email'];
-                $con_fec = $_POST['condicion_creacion'];
-                $con_ope = $_POST['condicion_operario'];
-                $consult = CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
-
-                $tarea = dosCampos($consult);
-            }
-            else// BUSCA POR UN SOLO CAMPO
-                {    $tarea = unSoloCampo($eml,$ope,$fec);      }              
-        }              
+        $consult = CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
+    
+        $tarea = filtramos($consult);          
     }
     else
     {

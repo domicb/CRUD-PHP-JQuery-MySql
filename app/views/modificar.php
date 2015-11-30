@@ -76,12 +76,8 @@
                     <div class="col-md-9">
 
                     <!-- FORMULARIO -->
-                        <form name="nuevo_usuario" class="form" method="POST" action="../controllers/actualizar_tarea.php">
-                             <div class="form-group"><!-- PROVINCIAS -->
-                                <?=CreaSelect(); 
-                                if( isset($array_errores['provincia']) )
-                                    { VerError('provincia'); }?>
-                            </div>                                   
+                        <form name="nuevo_usuario" class="form" method="POST" action="../controllers/modificar_tarea.php">
+                                  
                             <!-- AQUI EMPIEZAN LOS CAMPOS -->        
                                 <div class="form-group">                                    
                                     <input class="form-control" type="text" name="nombre" value="<?php echo $tarea['nombre']; ?>" placeholder="Nombre"/>

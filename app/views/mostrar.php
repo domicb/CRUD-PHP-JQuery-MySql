@@ -57,8 +57,9 @@
                     <a class="list-group-item active">Pulsa sobre una acción</a>
                     <a href="../controllers/mostrar_tarea.php" class="list-group-item">Mostrar Tareas</a>
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
-                    <a href="final.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="borrar.php" class="list-group-item">Borrar Tarea</a>
+                    <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
+                    <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
+                    <a href="../controllers/borrar.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div>
             
@@ -103,15 +104,15 @@
             				<tr><!--tabla de tareas-->
             					<td><b>Descripcion</b></td>
             					<td><b>Operario</b></td>
-                                <td><b>Nombre</b></td>
-                                <td><b>Codigo Postal</b></td>
-                                <td><b>Telefono</b></td>
-                                <td><b>Provincia</b></td>
-                                <td><b>Direccion</b></td>
-                                <td><b>Poblacion</b></td>
-                                <td><b>Estado</b></td>
-                                <td><b>Fecha Creacion</b></td>
-                                <td><b>Fecha Finalizacion</b></td>
+                                                <td><b>Nombre</b></td>
+                                                <td><b>Codigo Postal</b></td>
+                                                <td><b>Telefono</b></td>
+                                                <td><b>Provincia</b></td>
+                                                <td><b>Direccion</b></td>
+                                                <td><b>Poblacion</b></td>
+                                                <td><b>Estado</b></td>
+                                                <td><b>Fecha Creacion</b></td>
+                                                <td><b>Fecha Finalizacion</b></td>
             					<td><b>Acciones</b></td>
                 			</tr>
                 				<tbody>
@@ -131,10 +132,15 @@
                                     <td> <?php echo getEstado($row['estado']);?> </td>
                                     <td> <?php echo $row['fecha_creacion'];?> </td>
                                     <td> <?php echo $row['fecha_realizacion'];?> </td>
-                                    <td><a href="../controllers/modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
-                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    <td>
+                                    <a href="../controllers/modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>&nbsp;&nbsp;<a href="../controllers/completar_tarea.php?id=<?php echo $row['idtarea'];?>">
+                                        <span class="glyphicon glyphicon-ok"></span>
                                     </a>&nbsp;&nbsp;<a href="modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
-                                    <span class="glyphicon glyphicon-remove"></span></a></td>
+                                        <span class="glyphicon glyphicon-remove"></span></a>
+                                    
+                                    </td>
                                 <?php endforeach; ?> 
                                 </tr>
                         
