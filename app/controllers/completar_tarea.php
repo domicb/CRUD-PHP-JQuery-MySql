@@ -9,7 +9,17 @@ if(isset($_GET['id']))
     $tarea = getTarea($t);
     include('..\\views\\completar.php');
 }
- else   
- {
-      include('..\\views\\completar.php');//volvemos al formulario
- }
+ 
+//si guardan la tarea
+if($_POST['completar'])
+{
+    $nuevo_estado = $_POST['estado'];
+    $anotaciones = $_POST['anotaciones_posteriores'];   
+    //actualiza();
+}
+else
+{
+    include('..\\views\\completar.php');//volvemos al formulario
+}
+ 
+     

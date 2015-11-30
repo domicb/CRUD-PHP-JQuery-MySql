@@ -66,15 +66,15 @@ require('classBBDD.php');
 		$html.= "<select class='form-control' name='provincia'";
 
 		$html.= '<option></option>';
-			
-			for($i = 1;$i < $numCom; $i++)
-			{	
-				$html.= '<option  ';
-				$html.= ' value="'.$ids.'"> ';
-				$html.= $pro[$i];
-				$html.= '</option>';
-				$ids++;
-			}	
+
+                for($i = 1;$i < $numCom; $i++)
+                {	
+                        $html.= '<option  ';
+                        $html.= ' value="'.$ids.'"> ';
+                        $html.= $pro[$i];
+                        $html.= '</option>';
+                        $ids++;
+                }	
 		$html.= '</select>';
 		$html.= '</label>';
 
@@ -86,25 +86,25 @@ require('classBBDD.php');
 	 */
 	function getProvincias()
 	{
-		/*Creamos la instancia del objeto. Ya estamos conectados*/
-		$bd = Db::getInstance();
-		
-		/*Creamos una query sencilla*/
-		$sql = 'SELECT idprovincia as id, nombre as nom
-						FROM `provincia`';
-		
-		/*Ejecutamos la query*/
-		$bd->Consulta($sql);
-		
-		// Creamos el array donde se guardarán las provincias
-		$Provincias = Array();
-		
-		/*Realizamos un bucle para ir obteniendo los resultados*/
-		while ($reg = $bd->LeeRegistro())
-		{
-			$Provincias[$reg['id']] = $reg['nom'];	 
-		}
-		return $Provincias;
+            /*Creamos la instancia del objeto. Ya estamos conectados*/
+            $bd = Db::getInstance();
+
+            /*Creamos una query sencilla*/
+            $sql = 'SELECT idprovincia as id, nombre as nom
+                                            FROM `provincia`';
+
+            /*Ejecutamos la query*/
+            $bd->Consulta($sql);
+
+            // Creamos el array donde se guardarán las provincias
+            $Provincias = Array();
+
+            /*Realizamos un bucle para ir obteniendo los resultados*/
+            while ($reg = $bd->LeeRegistro())
+            {
+                    $Provincias[$reg['id']] = $reg['nom'];	 
+            }
+            return $Provincias;
 	}
 
 	/**
@@ -112,11 +112,11 @@ require('classBBDD.php');
 	 */
 	function getProvincia($idprov)
 	{
-		$bd = Db::getInstance(); 
-		$prov="select nombre from provincia where idprovincia =".$idprov;
-		$bd->Consulta($prov);
+            $bd = Db::getInstance(); 
+            $prov="select nombre from provincia where idprovincia =".$idprov;
+            $bd->Consulta($prov);
 
-		while($fila=$bd->LeeRegistro())
+            while($fila=$bd->LeeRegistro())
 	    {              
 	        $devu =  $fila['nombre'];
 	    }       
@@ -196,13 +196,18 @@ require('classBBDD.php');
 		$bd->Insertar($tabla,$campos);
 	}
 
-	function setTarea($camposTarea,$cond)
+	function actualiza($camposTarea,$cond)
 	{
 		$bd=Db::getInstance();
-		$res = $bd->update('tarea',$camposTarea,$cond);
+		$bd->update('tarea',$camposTarea,$cond);
 		
-		return $res;
 	}
+        
+        function borrar($iden)
+        {
+            $bd=Db::getInstance();
+            $bd->delete($iden); 
+        }
         function condicionE($eml,$con_eml)
         {
             if($con_eml == 'like')
@@ -225,24 +230,24 @@ require('classBBDD.php');
 	*/
 	function CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec)
 	{
-		$condiciones = array();
-                $em = condicionE($eml,$con_eml);
-                $op = condicionO($ope,$con_ope);
+            $condiciones = array();
+            $em = condicionE($eml,$con_eml);
+            $op = condicionO($ope,$con_ope);
 
-		if(! EMPTY($con_eml))
-		{
-			$condiciones['eml'] = ' email '. $con_eml . ' '."'". $em ."'";
-		}
-		if(! EMPTY($con_ope))
-		{
-			$condiciones['ope'] = ' operario '. $con_ope . ' '."'". $op."'";
-		}
-		if(! EMPTY($con_fec))
-		{
-			$condiciones['fec'] = ' fecha_creacion '. $con_fec . ' '. $fec;
-		}
+            if(! EMPTY($con_eml))
+            {
+                    $condiciones['eml'] = ' email '. $con_eml . ' '."'". $em ."'";
+            }
+            if(! EMPTY($con_ope))
+            {
+                    $condiciones['ope'] = ' operario '. $con_ope . ' '."'". $op."'";
+            }
+            if(! EMPTY($con_fec))
+            {
+                    $condiciones['fec'] = ' fecha_creacion '. $con_fec . ' '. $fec;
+            }
 
-		return  implode(' AND ', $condiciones);	
+            return  implode(' AND ', $condiciones);	
 	}
 	/**
 	*$tareasfiltro será el array devuelto con los resultados
@@ -250,17 +255,17 @@ require('classBBDD.php');
 	*/
 	function filtramos($vari)
 	{
-		$tareasfiltro = array();
+            $tareasfiltro = array();
 
-		$bd=Db::getInstance();
-		$sql='SELECT * FROM tarea WHERE '.$vari;
+            $bd=Db::getInstance();
+            $sql='SELECT * FROM tarea WHERE '.$vari;
 
-		$rs=$bd->Consulta($sql);
-		
-		while($row=$bd->LeeRegistro($rs))
-		{
-			$tareasfiltro[] = $row;
-		}
-		return $tareasfiltro;
+            $rs=$bd->Consulta($sql);
+
+            while($row=$bd->LeeRegistro($rs))
+            {
+                    $tareasfiltro[] = $row;
+            }
+            return $tareasfiltro;
 	}
 

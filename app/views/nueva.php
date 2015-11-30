@@ -66,7 +66,7 @@
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
                     <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
                     <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="../controllers/borrar.php" class="list-group-item">Borrar Tarea</a>
+                    <a href="../controllers/borrar_tarea.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div><br>
             <!--         cabecera        -->
@@ -77,8 +77,8 @@
                     <div class="col-md-9">
 
                     <!-- FORMULARIO -->
-						<form name="nuevo_usuario" class="form" method="POST" action="nueva_tarea.php">
-				             <div class="form-group"><!-- PROVINCIAS -->
+                    <form name="nuevo_usuario" class="form" method="POST" action="nueva_tarea.php">
+                        <div class="form-group"><!-- PROVINCIAS -->
                                 <?=CreaSelect(); 
                                 if( isset($array_errores['provincia']) )
                                     { VerError('provincia'); }?>
@@ -147,9 +147,9 @@
                                     <?php if( isset($array_errores['vacio']) )
                                     {      VerError('vacio'); }?>                       
                                 </div>
-								<hr> <center><input type="submit" name="guardar" value="Registrar" /></center>
+                        <hr> <center><input type="submit" class="btn btn-success" name="guardar" value="Registrar" /></center>
 																
-						</form>
+                    </form>
                         
                     </div>
 

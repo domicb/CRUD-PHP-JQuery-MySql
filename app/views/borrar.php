@@ -67,30 +67,16 @@
                 </div>
             </div><br><br><br>
             <!--         cabecera        -->          
-                <p><h2>Completar Tarea</h2></p>                           
+                <p><h2>Borrar Tarea</h2></p>                           
                     <hr>          
                  <div class="row">
                     <div class="col-md-8">                        
                     <!-- FORMULARIO -->
-                    <form name="nuevo_usuario" class="form" method="POST" action="completar_tarea.php">              
-                            <!-- radio estado -->
-                            <div class="form-group">
-                                <p><b>Selecciona el estado de la tarea:</b>
-                                <label class="radio-inline">
-                                  <input type="radio" name="estado" value="pendiente"> Pendiente
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="estado" value="realizada" checked> Realizada
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="estado" value="cancelada"> Cancelada
-                                </label> <?php if( isset($array_errores['estado']) )
-                                    { VerError('estado'); }?>   </p>
-                            </div>                                
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  name="anotaciones_posteriores" value="<?=ValorPost('descripcion')?>" placeholder="Anotaciones posteriores" />
-                                </div>
-			<hr> <center><input type="submit" name="completar" value="Completar" /></center>																
+                    <form name="nuevo_usuario" class="form" method="POST" action="borrar_tarea.php">  
+                        <span class="label label-danger">Esta seguro de querer borrar la tarea?</span>
+			<input type="submit" class="btn btn-danger" name="borrar" value="BORRAR" />	
+                        <span class="label label-primary">Pulsa volver para elegir otra tarea</span>
+                        <input type="submit" class="btn btn-success" name="volver" value="VOLVER" />	
 			</form>                       
                     </div>
                  </div> <!-- Se cierra div formulario -->

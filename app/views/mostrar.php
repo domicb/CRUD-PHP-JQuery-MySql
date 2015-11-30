@@ -59,7 +59,7 @@
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
                     <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
                     <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="../controllers/borrar.php" class="list-group-item">Borrar Tarea</a>
+                    <a href="../controllers/borrar_tarea.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div>
             
@@ -81,11 +81,11 @@
                                 </div><div class="col-md-2">
                                     Fecha Creacion: <input type="text" name="creacion">
                                     <select name="condicion_creacion">
-        								<option></option>
-        								<option value=">"> MAYOR </option>
-        								<option value="<"> MENOR </option>
-        								<option value="="> IGUAL </option>
-    								</select>
+                                        <option></option>
+                                        <option value=">"> MAYOR </option>
+                                        <option value="<"> MENOR </option>
+                                        <option value="="> IGUAL </option>
+                                    </select>
                                 </div><div class="col-md-2">
                                     Email: <input type="text" name="ema">
                                     <select name="condicion_email">
@@ -115,7 +115,7 @@
                                                 <td><b>Fecha Finalizacion</b></td>
             					<td><b>Acciones</b></td>
                 			</tr>
-                				<tbody>
+                                    <tbody>
                                     <tr>
                                 <?php foreach ($tarea as $row) : ?>                                      
                                     <tr>
@@ -137,7 +137,7 @@
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a>&nbsp;&nbsp;<a href="../controllers/completar_tarea.php?id=<?php echo $row['idtarea'];?>">
                                         <span class="glyphicon glyphicon-ok"></span>
-                                    </a>&nbsp;&nbsp;<a href="modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
+                                    </a>&nbsp;&nbsp;<a href="borrar_tarea.php?id=<?php echo $row['idtarea'];?>">
                                         <span class="glyphicon glyphicon-remove"></span></a>
                                     
                                     </td>

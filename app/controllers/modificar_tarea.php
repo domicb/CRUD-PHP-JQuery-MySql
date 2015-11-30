@@ -16,7 +16,7 @@ if(isset($_POST['guardar']))
     //ceamos la condicion para la tarea 
    $condici = 'idtarea = '.$t;
    
-setTarea($tarea,$condici);
+ actualiza($tarea,$condici);
 }
 //llamamos a la funcion de la capa de abstraccion de bd update
 //$db->update('tareas', array('nombre'=>'La nueva tarea'), 'id='.$id);

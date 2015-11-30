@@ -58,12 +58,12 @@ Class Db {
 	 */
 	public function Consulta($sql)
 	{
-		//echo "<pre>Consulta: $sql</pre>"; 
-		$this->result=$this->link->query($sql);
-		if (! $this->result ) {
-			$this->ShowError();
-		}
-		return $this->result;
+            //echo "<pre>Consulta: $sql</pre>"; 
+            $this->result=$this->link->query($sql);
+            if (! $this->result ) {
+                    $this->ShowError();
+            }
+            return $this->result;
 	}
 
 	public function ShowError()
@@ -72,33 +72,41 @@ Class Db {
 		die();
 	}
 	
-	public function Insertar($tabla, $registro){
-		$values=array();
-		$campos=array();
-		foreach($registro as $campo=>$valor)
-		{
-			$values[]='"'.addslashes($valor).'"';
-			$campos[]='`'.$campo.'`';
-		}		
-		$sql = "INSERT INTO `$tabla`(".implode(',', $campos).") 
-				 VALUES (".implode(',', $values)."); ";
-		//echo "<p>SQL: $sql</p>";
-		return $this->link->query($sql);
+	public function Insertar($tabla, $registro)
+        {
+            $values=array();
+            $campos=array();
+            foreach($registro as $campo=>$valor)
+            {
+                    $values[]='"'.addslashes($valor).'"';
+                    $campos[]='`'.$campo.'`';
+            }		
+            $sql = "INSERT INTO `$tabla`(".implode(',', $campos).") 
+                             VALUES (".implode(',', $values)."); ";
+            //echo "<p>SQL: $sql</p>";
+            return $this->link->query($sql);
 	}
+        
+        public function delete($registro)
+        {
+            $sql = "DELETE FROM TAREA WHERE idtarea = ".$registro;
+            
+            return $this->link->query($sql);
+        }
 	
 	public function update($tabla, $registro, $cond)
 	{
-		$valores=array();
-		foreach($registro as $campo=>$valor)
-		{
-			$valores[]= $campo.' ="'.addslashes($valor).'"';
-		}
-		
-		$sql="update $tabla SET ".
-				implode(',', $valores).
-			  "where ".$cond;
-		
-		$this->consulta($sql);
+            $valores=array();
+            foreach($registro as $campo=>$valor)
+            {
+                    $valores[]= $campo.' ="'.addslashes($valor).'"';
+            }
+
+            $sql="update $tabla SET ".
+                            implode(',', $valores).
+                      "where ".$cond;
+
+            $this->consulta($sql);
 	}
 
 	/**
@@ -109,16 +117,16 @@ Class Db {
 	 */
 	public function LeeRegistro($result=NULL)
 	{
-		if (! $result)
-		{
-			if (! $this->result)
-			{
-				return NULL;
-			}
-			$result=$this->result;
-		}
-		$this->regActual=$result->fetch_array();;
-		return $this->regActual;
+            if (! $result)
+            {
+                    if (! $this->result)
+                    {
+                            return NULL;
+                    }
+                    $result=$this->result;
+            }
+            $this->regActual=$result->fetch_array();
+            return $this->regActual;
 	}
 
 	/**
@@ -148,17 +156,17 @@ Class Db {
 	 */
 	public function LeeUnRegistro($campo, $condicion, $dato)
 	{
-		$sql="select tarea from $tabla where $campo $condicion $dato";
-		//echo '<pre>SQL: $sql</pre>';
-		$rs=$this->link->query($sql);
-		if($rs)
-		{
-			return $rs->fetch_array();
-		}
-		else
-		{
-			return NULL;
-		}
+            $sql="select tarea from $tabla where $campo $condicion $dato";
+            //echo '<pre>SQL: $sql</pre>';
+            $rs=$this->link->query($sql);
+            if($rs)
+            {
+                    return $rs->fetch_array();
+            }
+            else
+            {
+                    return NULL;
+            }
 	}
 }
 ?>
