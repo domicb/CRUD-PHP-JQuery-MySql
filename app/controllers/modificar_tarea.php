@@ -11,6 +11,7 @@ if(isset($_GET['id']))
     include('..\\views\\modificar.php');
 }
 
+//tenemos que filtrar los campos antes de mandarlos
 if(isset($_POST['guardar']))
 {
     //ceamos la condicion para la tarea 
@@ -18,6 +19,4 @@ if(isset($_POST['guardar']))
    
  actualiza($tarea,$condici);
 }
-//llamamos a la funcion de la capa de abstraccion de bd update
-//$db->update('tareas', array('nombre'=>'La nueva tarea'), 'id='.$id);
 

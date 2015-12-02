@@ -61,9 +61,6 @@
                     <a class="list-group-item active">Pulsa sobre una acción</a>
                     <a href="../controllers/mostrar_tarea.php" class="list-group-item">Mostrar Tareas</a>
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
-                    <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
-                    <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="../controllers/borrar_tarea.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div><br><br><br>
             <!--         cabecera        -->          
@@ -76,7 +73,7 @@
                         <span class="label label-danger">Esta seguro de querer borrar la tarea?</span>
 			<input type="submit" class="btn btn-danger" name="borrar" value="BORRAR" />	
                         <span class="label label-primary">Pulsa volver para elegir otra tarea</span>
-                        <input type="submit" class="btn btn-success" name="volver" value="VOLVER" />	
+                        <a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-primary"> VOLVER</a>	
 			</form>                       
                     </div>
                  </div> <!-- Se cierra div formulario -->

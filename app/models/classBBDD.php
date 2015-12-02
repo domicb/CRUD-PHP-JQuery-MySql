@@ -89,8 +89,7 @@ Class Db {
         
         public function delete($registro)
         {
-            $sql = "DELETE FROM TAREA WHERE idtarea = ".$registro;
-            
+            $sql = "DELETE FROM TAREA WHERE idtarea = ".$registro;           
             return $this->link->query($sql);
         }
 	

@@ -55,17 +55,14 @@
     <!-- Page Content -->
     <div class="container">    
 
-            <div class="col-md-3"><br>
-                <p class="lead">Menú</p>
+        <div class="col-md-3"><br><br>
+                <p class="lead"><h1>Menú</h1></p>
                 <div class="list-group">
                     <a class="list-group-item active">Pulsa sobre una acción</a>
                     <a href="../controllers/mostrar_tarea.php" class="list-group-item">Mostrar Tareas</a>
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
-                    <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
-                    <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="../controllers/borrar_tarea.php" class="list-group-item">Borrar Tarea</a>
                 </div>
-            </div><br><br><br>
+            </div><br><br>
             <!--         cabecera        -->          
                 <p><h2>Completar Tarea</h2></p>                           
                     <hr>          
@@ -90,8 +87,8 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control"  name="anotaciones_posteriores" value="<?=ValorPost('descripcion')?>" placeholder="Anotaciones posteriores" />
                                 </div>
-			<hr> <center><input type="submit" name="completar" value="Completar" /></center>																
-			</form>                       
+			<hr> <center><input type="submit" name="completar" value="Completar" class="btn btn-primary" /></center>																
+			</form>   <br>                    
                     </div>
                  </div> <!-- Se cierra div formulario -->
                     <div class="row">

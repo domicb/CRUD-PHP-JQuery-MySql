@@ -51,15 +51,12 @@
 
         <div class="row">
 
-            <div class="col-md-3"><br><br>
+            <div class="col-md-3"><br><br><br>
                 <p class="lead"><h1>Menú</h1></p>
                 <div class="list-group">
                     <a class="list-group-item active">Pulsa sobre una acción</a>
                     <a href="../controllers/mostrar_tarea.php" class="list-group-item">Mostrar Tareas</a>
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
-                    <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
-                    <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="../controllers/borrar_tarea.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div>
             
@@ -94,9 +91,11 @@
                                         <option value="like"> Que contenga </option>
                                     </select>
                                 </div>
-                        <!-- AQUI TERMINAN LOS CAMPOS Y SE ENCUENTRA EL BOTON DEL FORMULARIO-->                      
-                            <input type="submit" class="btn btn-success" name="busca" value="FILTRAR">   
-                    </div>                            
+                    </div> 
+                <!-- AQUI TERMINAN LOS CAMPOS Y SE ENCUENTRA EL BOTON DEL FORMULARIO-->  
+                    <div class="row"> <br>         
+                            <center><input type="submit" class="btn btn-success" name="busca" value="FILTRAR"></center>   
+                    </div><br>
                     <div class="row">
                         <div class="col-md-3 .col-md-offset-3">
                      <table class="table table-striped">

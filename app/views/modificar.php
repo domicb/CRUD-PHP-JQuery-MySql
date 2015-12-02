@@ -64,8 +64,6 @@
                     <a class="list-group-item active">Pulsa sobre una acción</a>
                     <a href="mostrar_tarea.php" class="list-group-item">Mostrar Tareas</a>
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
-                    <a href="final.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="borrar.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div><br><br>
             <!--         cabecera        -->
@@ -121,7 +119,7 @@
                                     <?php if( isset($array_errores['vacio']) )
                                     {      VerError('vacio'); }?>                       
                                 </div>
-                                <hr> <center><input type="submit" name="guardar" value="Guardar Cambios" class="btn btn-success" /></center>
+                            <hr> <center><a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-info"> VOLVER</a> &nbsp;<input type="submit" name="guardar" value="Guardar Cambios" class="btn btn-success" /></center>
                                                                 
                         </form>
                         

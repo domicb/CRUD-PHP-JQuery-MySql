@@ -58,15 +58,12 @@
 
         <div class="row">
 
-            <div class="col-md-3"><br>
-                <p class="lead">Menú</p>
+            <div class="col-md-3"><br><br>
+                <p class="lead"><h1>Menú</h1></p>
                 <div class="list-group">
                     <a class="list-group-item active">Pulsa sobre una acción</a>
                     <a href="../controllers/mostrar_tarea.php" class="list-group-item">Mostrar Tareas</a>
                     <a href="../controllers/nueva_tarea.php" class="list-group-item">Añadir Tarea</a>
-                    <a href="../controllers/modificar_tarea.php" class="list-group-item">Modificar Tarea</a>
-                    <a href="../controllers/completar_tarea.php" class="list-group-item">Finalizar Tarea</a>
-                    <a href="../controllers/borrar_tarea.php" class="list-group-item">Borrar Tarea</a>
                 </div>
             </div><br>
             <!--         cabecera        -->
@@ -147,10 +144,10 @@
                                     <?php if( isset($array_errores['vacio']) )
                                     {      VerError('vacio'); }?>                       
                                 </div>
-                        <hr> <center><input type="submit" class="btn btn-success" name="guardar" value="Registrar" /></center>
+                            <!--BOTONES-->
+                        <hr> <center> <a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-info"> VOLVER</a> &nbsp;<input type="submit" class="btn btn-success" name="guardar" value="Registrar" /></center>
 																
-                    </form>
-                        
+                    </form>                       
                     </div>
 
                 </div>
