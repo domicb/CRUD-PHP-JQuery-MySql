@@ -2,6 +2,7 @@
 include('..\\models\\funciones.php');
 $tarea = array();
 $t='';
+$campos = array();
 //si han pulsado sobre editar
 if(isset($_GET['id']))
 {//recojemos el id y recojemos sus datos
@@ -13,10 +14,15 @@ if(isset($_GET['id']))
 //si guardan la tarea
 if(isset($_POST['completar']))
 {
+    
     $idcom = $_POST['idcompleta'];
-    $nuevo_estado = $_POST['estado'];
-    $anotaciones = $_POST['anotaciones_posteriores'];   
-    //actualiza();
+    $condicion = 'idtarea = '.$idcom;
+    $campos['estado'] = $_POST['estado'];
+    $campos['anotaciones_posteriores'] = $_POST['anotaciones_posteriores'];   
+    actualiza($campos,$condicion);
+
+    echo '<br><br><h1>Se ha completado la tarea con id '.$idcom.'</h1><br><br>';
+    echo '<a href="mostrar_tarea.php">Pulsa para volver a ver la lista de tareas</a>';
 }
 
  

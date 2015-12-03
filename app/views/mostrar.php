@@ -11,6 +11,33 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style>
+            .inp
+            {
+                border: 1px solid #DBE1EB;
+                font-size: 12px;
+                font-family: Arial, Verdana;
+                padding-left: 15px;
+                padding-right: 7px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                border-radius: 2px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -o-border-radius: 2px;
+                background: #FFFFFF;
+                background: linear-gradient(left, #FFFFFF, #F7F9FA);
+                background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+                background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+                background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+                color: #2E3133;
+            }
+            .inp:focus
+            {
+                color: #2E3133;
+                border-color: #FBFFAD;
+            }
+        </style>
 </head>
 <body>
 
@@ -68,24 +95,24 @@
                         <form name="buscar" class="form" method="POST" action="../controllers/mostrar_tarea.php">
                             <label>Para una busqueda personalizada introduce la condicion y el campo afectado</label><br>
                                 <div class="col-md-2">
-                                    Operario: <input type="text" name="operario">
-                                    <select name="condicion_operario">
+                                    Operario: <input type="text" class="inp" name="operario">
+                                    <select name="condicion_operario" class="inp">
                                       <option></option>
                                       <option value="="> IGUAL </option>
                                       <option value="!="> DIFERENTE </option>
                                       <option value="like"> Que empieze </option>
                                     </select>
                                 </div><div class="col-md-2">
-                                    Fecha Creacion: <input type="text" name="creacion">
-                                    <select name="condicion_creacion">
+                                    Fecha Creacion: <input class="inp" type="text" name="creacion">
+                                    <select name="condicion_creacion" class="inp" >
                                         <option></option>
                                         <option value=">"> MAYOR </option>
                                         <option value="<"> MENOR </option>
                                         <option value="="> IGUAL </option>
                                     </select>
                                 </div><div class="col-md-2">
-                                    Email: <input type="text" name="ema">
-                                    <select name="condicion_email">
+                                    Email: <input type="text" name="ema" class="inp">
+                                    <select name="condicion_email" class="inp">
                                         <option></option>
                                         <option value="="> IGUAL </option>
                                         <option value="like"> Que contenga </option>

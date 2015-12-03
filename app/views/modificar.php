@@ -16,7 +16,7 @@
         <style>
             .well { /*ocultamos la barra izquierda*/
                 overflow: hidden;
-            }
+            }            
         </style>
     </head>
 
@@ -73,32 +73,43 @@
                     <div class="col-md-9">
                         <!-- FORMULARIO -->
                         <form name="nuevo_usuario" class="form" method="POST" action="../controllers/modificar_tarea.php">
-                            <!--campo oculto--><input type="hidden" name="identi" value="<?php echo $tarea['idtarea']; ?>">  
+                            <!--campo oculto--><input  type="hidden" name="identi" value="<?php echo $tarea['idtarea']; ?>">  
                             <div class="form-group"><!-- PROVINCIAS -->
-                                <?=CreaSelect(); 
-                                if( isset($array_errores['provincia']) )
-                                    { VerError('provincia'); }?>
+                                <?=
+                                CreaSelect();
+                                if (isset($array_errores['provincia'])) {
+                                    VerError('provincia');
+                                }
+                                ?>
                             </div>
                             <!-- AQUI EMPIEZAN LOS CAMPOS -->        
                             <div class="form-group">                                    
                                 <input class="form-control" type="text" name="nombre" value="<?php echo $tarea['nombre']; ?>" placeholder="Nombre"/>
-                                <?php if (isset($array_errores['vacio1'])) {
-                                    VerError('vacio1');    }      ?>   
+<?php if (isset($array_errores['vacio1'])) {
+    VerError('vacio1');
+}
+?>   
                             </div>
                             <div class="form-group">        
                                 <input type="text" class="form-control" name="apellidos" value="<?php echo $tarea['apellidos']; ?>" placeholder="Apellidos"/>
                                 <?php if (isset($array_errores['vacio1'])) {
-                                    VerError('vacio1');     }              ?>
+                                    VerError('vacio1');
+                                }
+                                ?>
                             </div>
                             <div class="form-group">
                                 <input type="text" name="telefono" class="form-control" value="<?php echo $tarea['telefono']; ?>" placeholder="telefono"/>
-                                <?php if (isset($array_errores['telefono'])) {
-                                    VerError('telefono');    }   ?> 
+<?php if (isset($array_errores['telefono'])) {
+    VerError('telefono');
+}
+?> 
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="email" value="<?php echo $tarea['email']; ?>" placeholder="email"/>
-                                    <?php if (isset($array_errores['email'])) {
-                                        VerError('email');  }     ?>
+<?php if (isset($array_errores['email'])) {
+    VerError('email');
+}
+?>
                             </div>
                             <div class="form-group">                                
                                 <input type="text" name="direccion" class="form-control" value="<?php echo $tarea['direccion'] ?>" placeholder="direccion"/>
@@ -109,7 +120,9 @@
                             <div class="form-group">
                                 <input type="text" name="cod_postal" class="form-control" value="<?php echo $tarea['cod_postal'] ?>" placeholder="Codigo Postal"/>
                                 <?php if (isset($array_errores['cod_postal'])) {
-                                    VerError('cod_postal');    }      ?>
+                                    VerError('cod_postal');
+                                }
+                                ?>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" class="form-control" name="operario" value="<?php echo $tarea['operario'] ?>" placeholder="Operario"/>
@@ -119,8 +132,10 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="descripcion" value="<?php echo $tarea['descripcion'] ?>" placeholder="Descripcion de la tarea" />
-                                <?php if (isset($array_errores['vacio'])) {
-                                    VerError('vacio');   }     ?>                       
+<?php if (isset($array_errores['vacio'])) {
+    VerError('vacio');
+}
+?>                       
                             </div>
                             <hr> <center><a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-info"> VOLVER</a> &nbsp;<input type="submit" name="guardar" value="Guardar Cambios" class="btn btn-success" /></center>
 

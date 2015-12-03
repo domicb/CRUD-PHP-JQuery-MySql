@@ -15,7 +15,7 @@ if(isset($_GET['id']))
 
 if(isset($_POST['guardar']))
 {
-   /*tenemos que filtrar los campos antes de mandarlos
+   //tenemos que filtrar los campos antes de mandarlos
   	if (empty($_POST['descripcion'])) {
 		$array_errores['vacio'] = 'Debes introducir algo en la descripcion';
 	}
@@ -36,15 +36,12 @@ if(isset($_POST['guardar']))
 			$array_errores['cod_postal'] = 'Introduce un codigo postal válido';
 		}
 	}
-	if (empty($_POST['estado'])) {
-		$array_errores['estado'] = 'Se debe seleccionar un estado';
-	}
 	if (empty($_POST['provincia'])) {
 		$array_errores['provincia'] = 'Se debe seleccionar una provincia de la lista';
 	}
 
 	if (empty($array_errores))//sino hay errores en el formulario podemos enviarlos
-	{*/
+	{
 		$campos=array();
 		$campos['descripcion']=$_POST['descripcion'];
 		$campos['nombre']=$_POST['nombre'];
@@ -55,9 +52,7 @@ if(isset($_POST['guardar']))
 		$campos['poblacion']=$_POST['poblacion'];
 		$campos['cod_postal']=$_POST['cod_postal'];		
 		$campos['operario']=$_POST['operario'];
-		$campos['fecha_realizacion']='';
 		$campos['anotaciones_anteriores']=$_POST['anotaciones_anteriores'];
-		$campos['anotaciones_posteriores']=null;
 		$campos['idprovincia']=$_POST['provincia'];
                 
                 $t = $_POST['identi'];
@@ -65,6 +60,6 @@ if(isset($_POST['guardar']))
 		actualiza($campos,$condici);
 		echo '<br><br><h1>Se ha modificado la tarea con id '.$t.'</h1><br><br>';
 		echo '<a href="mostrar_tarea.php">Pulsa para volver a ver la lista de tareas</a>';
-	//}
+	}
 }
 
