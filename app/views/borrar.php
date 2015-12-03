@@ -70,6 +70,7 @@
                     <div class="col-md-8">                        
                     <!-- FORMULARIO -->
                     <form name="nuevo_usuario" class="form" method="POST" action="borrar_tarea.php">  
+                        <input type="hidden" name="identificador" value="<?php echo $tarea['idtarea'];?>">
                         <span class="label label-danger">Esta seguro de querer borrar la tarea?</span>
 			<input type="submit" class="btn btn-danger" name="borrar" value="BORRAR" />	
                         <span class="label label-primary">Pulsa volver para elegir otra tarea</span>

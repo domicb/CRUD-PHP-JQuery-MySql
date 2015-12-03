@@ -11,8 +11,9 @@ if(isset($_GET['id']))
 
 if(isset($_POST['borrar']))
 {
-    borrar($iden);
-    echo '<br><br><h1>Se ha borrado la tarea seleccionada</h1><br><br>';
+    $ident = $_POST['identificador'];
+    borrar($ident);
+    echo '<br><br><h1>Se ha borrado correspondiente al id'.$ident.'</h1><br><br>';
     echo '<a href="mostrar_tarea.php">Pulsa para volver a ver la lista de tareas</a>';
 }
 if(isset($_POST['volver']))

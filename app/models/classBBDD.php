@@ -58,7 +58,7 @@ Class Db {
 	 */
 	public function Consulta($sql)
 	{
-            //echo "<pre>Consulta: $sql</pre>"; 
+            echo "<pre>Consulta: $sql</pre>"; 
             $this->result=$this->link->query($sql);
             if (! $this->result ) {
                     $this->ShowError();
@@ -95,16 +95,12 @@ Class Db {
 	
 	public function update($tabla, $registro, $cond)
 	{
-            $valores=array();
+            $valores = array();
             foreach($registro as $campo=>$valor)
             {
-                    $valores[]= $campo.' ="'.addslashes($valor).'"';
+                $valores[]= $campo.' ="'.addslashes($valor).'"';
             }
-
-            $sql="update $tabla SET ".
-                            implode(',', $valores).
-                      "where ".$cond;
-
+            $sql="update $tabla SET ".implode(',', $valores)."where ".$cond;
             $this->consulta($sql);
 	}
 
@@ -118,11 +114,11 @@ Class Db {
 	{
             if (! $result)
             {
-                    if (! $this->result)
-                    {
-                            return NULL;
-                    }
-                    $result=$this->result;
+                if (! $this->result)
+                {
+                        return NULL;
+                }
+                $result=$this->result;
             }
             $this->regActual=$result->fetch_array();
             return $this->regActual;

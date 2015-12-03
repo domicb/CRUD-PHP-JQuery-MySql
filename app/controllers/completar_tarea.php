@@ -13,6 +13,7 @@ if(isset($_GET['id']))
 //si guardan la tarea
 if(isset($_POST['completar']))
 {
+    $idcom = $_POST['idcompleta'];
     $nuevo_estado = $_POST['estado'];
     $anotaciones = $_POST['anotaciones_posteriores'];   
     //actualiza();

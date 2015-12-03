@@ -69,7 +69,9 @@
                  <div class="row">
                     <div class="col-md-8">                        
                     <!-- FORMULARIO -->
-                    <form name="nuevo_usuario" class="form" method="POST" action="completar_tarea.php">              
+                    <form name="nuevo_usuario" class="form" method="POST" action="completar_tarea.php">  
+                    <!--campo oculto-->
+                    <input type="hidden" name="idcompleta" value="<?php echo $tarea['idtarea'];?>">
                             <!-- radio estado -->
                             <div class="form-group">
                                 <p><b>Selecciona el estado de la tarea:</b>
