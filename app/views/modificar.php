@@ -98,7 +98,7 @@
                                 ?>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="telefono" class="form-control" value="<?php echo $tarea['telefono']; ?>" placeholder="telefono"/>
+                                <input type="number" name="telefono" class="form-control" value="<?php echo $tarea['telefono']; ?>" placeholder="telefono"/>
 <?php if (isset($array_errores['telefono'])) {
     VerError('telefono');
 }
@@ -118,7 +118,7 @@
                                 <input type="text" name="poblacion" class="form-control" value="<?php echo $tarea['poblacion'] ?>" placeholder="Poblacion"/>  
                             </div>
                             <div class="form-group">
-                                <input type="text" name="cod_postal" class="form-control" value="<?php echo $tarea['cod_postal'] ?>" placeholder="Codigo Postal"/>
+                                <input type="number" name="cod_postal" class="form-control" value="<?php echo $tarea['cod_postal'] ?>" placeholder="Codigo Postal"/>
                                 <?php if (isset($array_errores['cod_postal'])) {
                                     VerError('cod_postal');
                                 }

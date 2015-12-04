@@ -89,7 +89,7 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control"  name="anotaciones_posteriores" value="<?=ValorPost('descripcion')?>" placeholder="Anotaciones posteriores" />
                                 </div>
-			<hr> <center><input type="submit" name="completar" value="Completar" class="btn btn-primary" /></center>																
+                            <hr> <center><input type="submit" name="completar" value="Completar" class="btn btn-primary" />&nbsp;<a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-info"> VOLVER</a></center>																
 			</form>   <br>                    
                     </div>
                  </div> <!-- Se cierra div formulario -->
@@ -130,7 +130,7 @@
                                     <td> <?php echo $tarea['anotaciones_anteriores'];?></td>
                                 </tr>
                         
-            				</tbody>
+                                    </tbody>
             		</table>                         
                                                          
                         </div>

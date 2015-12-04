@@ -17,7 +17,7 @@ else
 	}
 	if (empty($_POST['telefono']) || is_numeric($_POST['telefono']) == false) {
 		$array_errores['telefono'] = 'Debes de introducir un telefono correcto';
-	}
+	}     
 	if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === true) {
 		$array_errores['email'] = 'Introduce un email correcto';
 	}

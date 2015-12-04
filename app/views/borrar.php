@@ -64,17 +64,17 @@
                 </div>
             </div><br><br><br>
             <!--         cabecera        -->          
-                <p><h2>Borrar Tarea</h2></p>                           
+            <p><center><h2>Borrar Tarea</h2></center></p>                           
                     <hr>          
                  <div class="row">
                     <div class="col-md-8">                        
                     <!-- FORMULARIO -->
                     <form name="nuevo_usuario" class="form" method="POST" action="borrar_tarea.php">  
                         <input type="hidden" name="identificador" value="<?php echo $tarea['idtarea'];?>">
-                        <span class="label label-danger">Esta seguro de querer borrar la tarea?</span>
-			<input type="submit" class="btn btn-danger" name="borrar" value="BORRAR" />	
-                        <span class="label label-primary">Pulsa volver para elegir otra tarea</span>
-                        <a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-primary"> VOLVER</a>	
+                        <center><span class="label label-danger">Esta seguro de querer borrar la tarea?</span>				
+                            <span class="label label-primary">Pulsa volver para elegir otra tarea</span></center><br><br>
+                        <center><input type="submit" class="btn btn-danger" name="borrar" value="BORRAR" />
+                            <a role="button" href="../controllers/mostrar_tarea.php" class="btn btn-primary"> VOLVER</a></center><br>	
 			</form>                       
                     </div>
                  </div> <!-- Se cierra div formulario -->

@@ -58,6 +58,20 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+
+-- -----------------------------------------------------
+-- Table `tareas`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tareas`.`usuario` (
+  `idusuario` INT NOT NULL COMMENT '',
+  `nombre` VARCHAR(45) NOT NULL COMMENT '',
+  `contraseña` VARCHAR(45) NOT NULL COMMENT '',
+  `tipo` CHAR(1) NOT NULL COMMENT '',
+  PRIMARY KEY (`idusuario`)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- Insertamos algunas provincias
 INSERT INTO `provincia` VALUES ('01', 'Alava'),
 ('02', 'Albacete'),
 ('03', 'Alicante'),
@@ -111,6 +125,7 @@ INSERT INTO `provincia` VALUES ('01', 'Alava'),
 ('51', 'Ceuta'),
 ('52', 'Melilla');
 
+-- Insertamos algunas tareas
 INSERT INTO `tarea` VALUES 
 (null, 'cortar cesped', 'domise','carrasco',603781256,'domi1213@hotmail.com','coquina','puna umbria',21100,'r','24/12/1987','domic','24/12/2015','lol','loleilo',1),
 (null,'limpar piscina','pepito','rodriguez',604886428,'domic@hotmail.es','aurora','punta umbria',22100,'p','12/04/1999','juan','23/11/2016','limpiar bien','todo corrcto',2),

@@ -58,7 +58,7 @@ Class Db {
 	 */
 	public function Consulta($sql)
 	{
-            echo "<pre>Consulta: $sql</pre>"; 
+            //echo "<pre>Consulta: $sql</pre>"; 
             $this->result=$this->link->query($sql);
             if (! $this->result ) {
                     $this->ShowError();
