@@ -17,7 +17,7 @@
 <body>
     
     <?php
-    if(! isset($_SESSION['email'])){
+    if(isset($_SESSION['email'])){
     include('/app/views/plantilla/encabezado.php');
     ?>
     
@@ -29,8 +29,8 @@
         <?php include('/app/views/plantilla/inicio.php'); ?>
         
     </div>
-    <!-- /.container -->
-    <?php include('/app/views/plantilla/pie.php'); }else{include('/app/views/plantilla/login-panel.php');}?>
+    <!-- si esta logeado mostramos la pagina sino le mandamos al login -->
+    <?php include('/app/views/plantilla/pie.php'); } else { include('/app/controllers/login.php');}?>
    
 
 </body>

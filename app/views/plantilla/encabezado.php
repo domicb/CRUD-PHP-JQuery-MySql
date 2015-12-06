@@ -24,8 +24,20 @@
                         <a href="#">Contacto</a>
                     </li>
                     <li>
-                        <a href="#"> Logeate!</a>
+                        <a href="#"></a>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav" style="float:right">
+                    <li>
+                        <a href="">Logueado como: </a>
+                    </li>
+                    <li>
+                        <a href=""><?php echo $_SESSION['valores'];?></a>
+                    </li>
+
+                    <li>
+                        <a href="app/controllers/salir.php"> Cerrar Sesion</a>
+                    </li>                
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

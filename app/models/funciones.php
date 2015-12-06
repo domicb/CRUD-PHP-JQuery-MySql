@@ -140,6 +140,14 @@ require('classBBDD.php');
 		}
 	    return $tareas;
 	}
+        function getUsuario($dato)
+        {
+            $bd=Db::getInstance($dato);
+            $sql='SELECT contrasena FROM usuario WHERE email = '. $dato;
+            $bd->Consulta($sql);
+            $pass=$bd->LeeRegistro();
+            return $pass['contrasena'];
+        }
 	/**
 	*Funcion que devuelve la lista de tareas que cumpla la condicion
 	*/
