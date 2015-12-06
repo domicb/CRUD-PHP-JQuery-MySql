@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head> 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,54 +84,54 @@
                             </div>
                             <!-- AQUI EMPIEZAN LOS CAMPOS -->        
                             <div class="form-group">                                    
-                                <input class="form-control" type="text" name="nombre" value="<?php echo $tarea['nombre']; ?>" placeholder="Nombre"/>
+                                <input class="form-control" type="text" name="nombre" value="<?= ValorPost('nombre'); ?>" placeholder="Nombre"/>
 <?php if (isset($array_errores['vacio1'])) {
     VerError('vacio1');
 }
 ?>   
                             </div>
                             <div class="form-group">        
-                                <input type="text" class="form-control" name="apellidos" value="<?php echo $tarea['apellidos']; ?>" placeholder="Apellidos"/>
+                                <input type="text" class="form-control" name="apellidos" value="<?= ValorPost('apellidos'); ?>" placeholder="Apellidos"/>
                                 <?php if (isset($array_errores['vacio1'])) {
                                     VerError('vacio1');
                                 }
                                 ?>
                             </div>
                             <div class="form-group">
-                                <input type="number" name="telefono" class="form-control" value="<?php echo $tarea['telefono']; ?>" placeholder="telefono"/>
+                                <input type="number" name="telefono" class="form-control" value="<?= ValorPost('telefono'); ?>" placeholder="telefono"/>
 <?php if (isset($array_errores['telefono'])) {
     VerError('telefono');
 }
 ?> 
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="email" value="<?php echo $tarea['email']; ?>" placeholder="email"/>
+                                <input type="text" class="form-control" name="email" value="<?= ValorPost('email'); ?>" placeholder="email"/>
 <?php if (isset($array_errores['email'])) {
     VerError('email');
 }
 ?>
                             </div>
                             <div class="form-group">                                
-                                <input type="text" name="direccion" class="form-control" value="<?php echo $tarea['direccion'] ?>" placeholder="direccion"/>
+                                <input type="text" name="direccion" class="form-control" value="<?= ValorPost('direccion'); ?>" placeholder="direccion"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="poblacion" class="form-control" value="<?php echo $tarea['poblacion'] ?>" placeholder="Poblacion"/>  
+                                <input type="text" name="poblacion" class="form-control" value="<?= ValorPost('poblacion'); ?>" placeholder="Poblacion"/>  
                             </div>
                             <div class="form-group">
-                                <input type="number" name="cod_postal" class="form-control" value="<?php echo $tarea['cod_postal'] ?>" placeholder="Codigo Postal"/>
+                                <input type="number" name="cod_postal" class="form-control" value="<?= ValorPost('cod_postal'); ?>" placeholder="Codigo Postal"/>
                                 <?php if (isset($array_errores['cod_postal'])) {
                                     VerError('cod_postal');
                                 }
                                 ?>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" class="form-control" name="operario" value="<?php echo $tarea['operario'] ?>" placeholder="Operario"/>
+                                <input type="text" class="form-control" class="form-control" name="operario" value="<?= ValorPost('operario'); ?>" placeholder="Operario"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control"  name="anotaciones_anteriores" value="<?php echo $tarea['anotaciones_anteriores'] ?>" placeholder="Anotaciones" />
+                                <input type="text" class="form-control"  name="anotaciones_anteriores" value="<?= ValorPost('anotaciones_anteriores'); ?>" placeholder="Anotaciones" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="descripcion" value="<?php echo $tarea['descripcion'] ?>" placeholder="Descripcion de la tarea" />
+                                <input type="text" class="form-control" name="descripcion" value="<?= ValorPost('descripcion'); ?>" placeholder="Descripcion de la tarea" />
 <?php if (isset($array_errores['vacio'])) {
     VerError('vacio');
 }
@@ -175,6 +175,3 @@
 </body>
 
 </html>
-
-
-
