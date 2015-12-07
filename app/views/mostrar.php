@@ -52,20 +52,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.php">Inicio</a>
+                <a class="navbar-brand" href="../controllers/mostrar_tarea.php">Inicio</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Sobre nosotros</a>
-                    </li>
-                    <li>
-                        <a href="#">Que ofrecemos</a>
-                    </li>
-                    <li>
-                        <a href="#">Contacto</a>
-                    </li>
+                        <li>
+                            <a href="../views/plantilla/sobre.php">Sobre nosotros</a>
+                        </li>
+                        <li>
+                            <a href="../views/plantilla/sobre.php">Que ofrecemos</a>
+                        </li>
+                        <li>
+                            <a href="../views/plantilla/sobre.php">Contacto</a>
+                        </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -120,8 +120,9 @@
                                 </div>
                     </div> 
                 <!-- AQUI TERMINAN LOS CAMPOS Y SE ENCUENTRA EL BOTON DEL FORMULARIO-->  
-                    <div class="row"> <br>         
-                            <center><input type="submit" class="btn btn-success" name="busca" value="FILTRAR"></center>   
+                    <div class="row"> <br>      
+                            <center><input type="submit" class="btn btn-success" name="busca" value="FILTRAR"></center> 
+                            <?php if($filtra == true): ?>
                     </div><br>
                     <div class="row">
                         <div class="col-md-3 .col-md-offset-3">
@@ -139,6 +140,7 @@
                                                 <td><b>Estado</b></td>
                                                 <td><b>Fecha Creacion</b></td>
                                                 <td><b>Fecha Finalizacion</b></td>
+                                                <td><b>Email</b></td>
             					<td><b>Acciones</b></td>
                 			</tr>
                                     <tbody>
@@ -158,6 +160,7 @@
                                     <td> <?php echo getEstado($row['estado']);?> </td>
                                     <td> <?php echo $row['fecha_creacion'];?> </td>
                                     <td> <?php echo $row['fecha_realizacion'];?> </td>
+                                    <td> <?php echo $row['email'];?> </td>
                                     <td>
                                     <a href="../controllers/modificar_tarea.php?id=<?php echo $row['idtarea'];?>">
                                         <span class="glyphicon glyphicon-pencil"></span>
@@ -178,17 +181,22 @@
                     </div>
                 </div>
                 <P>
+                    <a href="?pag=<?=$posIni?>">  Primera</a> /
                 <?php if ($pag>1): ?>
                     <a href="?pag=<?=$pag-1?>">  Anterior</a>
                 <?php endif; ?>
                 <?php echo 'Pagina '.$pag?>
                 <?php if ($pag<$maxPag-1) :?> 
-                    <a href="?pag=<?=$pag+1?>">  Siguiente</a>
+                    <a href="?pag=<?=$pag+1?>">  Siguiente</a> / 
                 <?php endif;?>
+                    <a href="?pag=<?=round($maxPag)?>">  Última</a>
                     </P>
             </div>
 
-        </div>
+        </div><?php else : 
+                        echo '<div class="alert alert-danger">';
+			echo '<span style="color:red">Debes introducir campo y condicion</span>';
+			echo '</div>'; endif;?>
 
     </div>
     <!-- /.container -->

@@ -15,6 +15,7 @@ if(isset($_POST['email']) && isset($_POST['password']))//si envian el formulario
       $_SESSION['valores']='<p><b>'.$_POST['email']. ' ' .date("H:i").'</b></p>';
       include('index.php');
   } 
+  else{ include('app/views/plantilla/login-panel.php');}
 }
 else
 {

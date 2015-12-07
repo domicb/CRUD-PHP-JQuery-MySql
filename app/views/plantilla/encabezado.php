@@ -15,17 +15,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Sobre nosotros</a>
-                    </li>
-                    <li>
-                        <a href="#">Que ofrecemos</a>
-                    </li>
-                    <li>
-                        <a href="#">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
-                    </li>
+                            <a href="../views/plantilla/sobre.php">Sobre nosotros</a>
+                        </li>
+                        <li>
+                            <a href="../views/plantilla/sobre.php">Que ofrecemos</a>
+                        </li>
+                        <li>
+                            <a href="../views/plantilla/sobre.php">Contacto</a>
+                        </li>
                 </ul>
                 <ul class="nav navbar-nav" style="float:right">
                     <li>

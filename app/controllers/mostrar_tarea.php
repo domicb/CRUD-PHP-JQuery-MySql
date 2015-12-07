@@ -1,7 +1,7 @@
 <?php
     /*Aqui controlaremos la paginacion y pediremos la consulta al modelo*/
     include('..\\models\\funciones.php');
-
+    $filtra = false;
     define ('PROXPAG', 5);
     //Elementos de paginación
     $tarea = array();
@@ -35,14 +35,20 @@
         $con_eml = $_POST['condicion_email'];
         $con_fec = $_POST['condicion_creacion'];
         $con_ope = $_POST['condicion_operario'];
-
-        $consult = CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);
-    
-        $tarea = filtramos($consult);          
+        
+        if($eml !='' && $con_eml !='' || $ope !='' && $con_ope !='' || $fec !='' && $con_fec='')
+        {
+            $consult = CreaCondicion($eml,$con_eml,$ope,$con_ope,$fec,$con_fec);   
+            $tarea = filtramos($consult);   
+            $filtra = true;
+        }
+        else
+        {$filtra = false;}               
     }
     else
     {
         $tarea = getTareas($posIni,PROXPAG); 
+        $filtra= true;
     }  
 
     include('..\\views\\mostrar.php');
