@@ -3,7 +3,9 @@
 // Datos de configuración.
 include_once 'conex.php';
 
-/* Clase encargada de gestionar las conexiones a la base de datos */
+/* Clase encargada de gestionar las conexiones a la base de datos 
+ * Nos asegura una sola conexión grácias al patron singelton
+ */
 Class Db {
 
 	private $link;
@@ -65,13 +67,21 @@ Class Db {
             }
             return $this->result;
 	}
-
+        /**
+	 * Devuelve el error del array devuelto por la bbdd
+	 * @param string this
+	 */
 	public function ShowError()
 	{
 		echo "<p>Error: ".$this->link->error."</p>";
 		die();
 	}
-	
+	/**
+	 * Funcion la cual inserta una nueva tarea
+	 * @param array  $tabla Tabla con la que operar
+         * @param array  $registro Campos a insertar 
+         *  @return array | NULL
+	 */
 	public function Insertar($tabla, $registro)
         {
             $values=array();
@@ -86,13 +96,23 @@ Class Db {
             //echo "<p>SQL: $sql</p>";
             return $this->link->query($sql);
 	}
-        
+         /**
+	 * Funcion la cual nos borra la tarea que le pasemos por parametro
+	 * @param string  $registro id de la tarea a borrar 
+         *  @return array | NULL
+	 */
         public function delete($registro)
         {
             $sql = "DELETE FROM TAREA WHERE idtarea = ".$registro;           
             return $this->link->query($sql);
         }
-	
+	         /**
+	 * Funcion la cual actualiza la tarea 
+	 * @param string $tabla tabla a operar
+         * @param string $registro campos a cambiar
+         * @param string $cond recoje la condicion para indentificar la tarea
+         *  @return array | NULL
+	 */
 	public function update($tabla, $registro, $cond)
 	{
             $valores = array();
