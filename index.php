@@ -18,7 +18,7 @@
     
     <?php
     if(isset($_SESSION['email'])){
-    include('/app/views/plantilla/encabezado.php');
+        include('/app/views/plantilla/encabezado.php');
     ?>
     
 <br><br><br>

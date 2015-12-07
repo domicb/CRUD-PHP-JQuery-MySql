@@ -8,9 +8,11 @@ if(isset($_POST['email']) && isset($_POST['password']))//si envian el formulario
   $contrasena = getUsuario($ema);
   if($contrasena === $pass)
   {
+      // SQL -> WHERE USERNAME='$username' AND PASSWORD='$password'
+      // if(mysql_num_rows($query) == 1)
       session_start();
-      $_SESSION['email']='uno';
-      $_SESSION['valores']='<p><b>'.$_POST['email'].date("H:i").'</b></p>';
+      $_SESSION['email']=$_POST['email'];
+      $_SESSION['valores']='<p><b>'.$_POST['email']. ' ' .date("H:i").'</b></p>';
       include('index.php');
   } 
 }

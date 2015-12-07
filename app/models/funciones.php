@@ -252,7 +252,7 @@ require('classBBDD.php');
             }
             if(! EMPTY($con_fec))
             {
-                    $condiciones['fec'] = ' fecha_creacion '. $con_fec . ' '. $fec;
+                    $condiciones['fec'] = ' fecha_creacion '. $con_fec . ' '."'". $fec."'";
             }
 
             return  implode(' AND ', $condiciones);	
