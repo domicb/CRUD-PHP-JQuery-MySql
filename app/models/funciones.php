@@ -152,10 +152,10 @@ function getTareas($Ini, $Final) {
  */
 function getUsuario($dato) {
     $bd = Db::getInstance($dato);
-    $sql = 'SELECT contrasena FROM usuario WHERE email = ' . $dato;
+    $sql = 'SELECT password FROM usuario WHERE email = ' . $dato;
     $bd->Consulta($sql);
     $pass = $bd->LeeRegistro();
-    return $pass['contrasena'];
+    return $pass['password'];
 }
 
 /**

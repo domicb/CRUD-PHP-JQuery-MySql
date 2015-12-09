@@ -53,6 +53,7 @@ if (isset($_GET['id'])) {//recojemos el id y recojemos sus datos
             $campos['operario'] = $_POST['operario'];
             $campos['anotaciones_anteriores'] = $_POST['anotaciones_anteriores'];
             $campos['idprovincia'] = $_POST['provincia'];
+    
 
             $t = $_POST['identi'];
             $condici = 'idtarea = ' . $t;
