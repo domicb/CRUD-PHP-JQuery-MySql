@@ -71,7 +71,9 @@ CREATE TABLE IF NOT EXISTS `tareas`.`usuario` (
 ENGINE = InnoDB;
 
 
-INSERT INTO `usuario` VALUES (null,'domic@hotmail.es','domic','123','1');
+INSERT INTO `usuario` VALUES (NULL,'domic@hotmail.es','123','1');
+INSERT INTO `usuario` VALUES (NULL,'usuario@usuario.usu','123','2');
+
 
 
 
