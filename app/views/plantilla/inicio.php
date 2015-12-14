@@ -2,8 +2,7 @@
 
                 <div class="thumbnail">
 
-                    <img class="img-responsive" src="../PracticaPHP/Assets/foto.jpg" alt="">
-                    
+                    <img class="img-responsive" src="../PracticaPHP/Assets/foto.jpg" alt="">                
                     <div class="caption-full">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">La contratacion del servicio mínimo tiene un coste de </a>

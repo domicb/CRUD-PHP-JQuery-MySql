@@ -22,6 +22,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {//si envian el formula
             // SQL -> WHERE USERNAME='$username' AND PASSWORD='$password'
             // if(mysql_num_rows($query) == 1)
             session_start();
+            $tipo_usuario = getTipo($ema);
+            if($tipo_usuario['tipo'] === '1')
+            {
+                $_SESSION['es_admin']='es_admin';
+            }
+            else
+            {
+                $_SESSION['es_usuario']='es_usuario';
+            }
+            
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['valores'] = '<p><b>' . $_POST['email'] . ' ' . date("H:i") . '</b></p>';
             include('index.php');

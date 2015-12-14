@@ -1,0 +1,13 @@
+Carrasco Bueno Domingo 
+El enlace para ver el repositorio público es:
+https://github.com/domicb/PracticaPHP
+
+El archivo a importar se encuentra dentro de la carpeta INSTALL con nombre DB.SQL,
+este se encarga de crear el esquema para la base de datos así como las tablas y algunos valores iniciales.
+
+El correcto acceso por login es como está por defecto 
+usuario: domic@hotmail.es
+contraseña: 123
+
+El controlador frontal está incompleto por tanto no se podrá cerrar sesion después de la página inicio pues, 
+la variable $_SESION no existe.

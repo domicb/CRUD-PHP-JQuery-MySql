@@ -235,6 +235,10 @@ function borrar($iden) {
     $bd = Db::getInstance();
     $bd->delete($iden);
 }
+function borrar_usuario($iden) {
+    $bd = Db::getInstance();
+    $bd->delete_usuario($iden);
+}
 /**
  * Convierte el campo email a formato mysql
  * @param string $eml contiene la cadena con el email formateado
@@ -299,4 +303,32 @@ function filtramos($vari) {
         $tareasfiltro[] = $row;
     }
     return $tareasfiltro;
+}
+function getTipo($id)
+{
+    $tarea = array();
+    $bd = Db::getInstance();
+    $sql = 'SELECT tipo from usuario where email=' . $id;
+    $bd->Consulta($sql);
+    $tarea = $bd->LeeRegistro();
+    return $tarea;
+}
+
+function getUsuarios()
+{
+    $tareasfiltro = array();
+
+    $bd = Db::getInstance();
+    $sql = 'SELECT * FROM usuario';
+
+    $rs = $bd->Consulta($sql);
+
+    while ($row = $bd->LeeRegistro($rs)) {
+        $tareasfiltro[] = $row;
+    }
+    return $tareasfiltro;
+}
+function actualiza_usuario($camposTarea, $cond) {
+    $bd = Db::getInstance();
+    $bd->update('usuario', $camposTarea, $cond);
 }

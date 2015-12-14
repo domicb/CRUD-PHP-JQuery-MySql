@@ -63,16 +63,15 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Table `tareas`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tareas`.`usuario` (
-  `idusuario` INT NOT NULL COMMENT '',
+  `idusuario` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `email` VARCHAR(25) NOT NULL COMMENT '',
-  `nombre` VARCHAR(45) NOT NULL COMMENT '',
   `password` VARCHAR(45) NOT NULL COMMENT '',
   `tipo` CHAR(1) NOT NULL COMMENT '',
   PRIMARY KEY (`idusuario`)  COMMENT '')
 ENGINE = InnoDB;
 
 
-INSERT INTO `usuario` VALUES ('01','domic@hotmail.es','domic','123','1');
+INSERT INTO `usuario` VALUES (null,'domic@hotmail.es','domic','123','1');
 
 
 

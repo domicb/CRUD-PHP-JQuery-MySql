@@ -20,5 +20,6 @@
     
         <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
       </form>
+    <center><a href="/app/controllers/add_add.php"></a></center>
 
     </div> <!-- /container -->

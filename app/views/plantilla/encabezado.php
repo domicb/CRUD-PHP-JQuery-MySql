@@ -13,18 +13,26 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                            <a href="app/views/plantilla/sobre.php">Sobre nosotros</a>
-                        </li>
-                        <li>
-                            <a href="app/views/plantilla/sobre.php">Que ofrecemos</a>
-                        </li>
-                        <li>
-                            <a href="app/views/plantilla/sobre.php">Contacto</a>
-                        </li>
-                </ul>
+
                 <ul class="nav navbar-nav" style="float:right">
+                    <li>
+                        <?php if(isset($_SESSION['es_admin'])) :
+                        {
+                            echo '<a href="app/controllers/add.php">Añadir usuario </a>';                                                    
+                        }
+                        ?>
+                    </li>
+                    <li>
+                        <?php  echo '<a href="app/controllers/delete.php">Eliminar usuario </a>';?>
+                    </li>
+                    <li><?php echo '<a href="app/controllers/mostrar_usuarios.php">Listar usuarios </a>';                endif;?></li>
+                    <li><?php if(isset($_SESSION['es_usuario']))
+                    {
+                         echo '<a href="app/controllers/modify.php">Modificar usuario </a>';
+                    }
+                    ?></li>
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    
                     <li>
                         <a href="">Logueado como: </a>
                     </li>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('\\..\\models\\funciones.php');?>
+<?php require_once('\\..\\models\\funciones.php');
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,6 +68,7 @@
                             <a href="../views/plantilla/sobre.php">Contacto</a>
                         </li>
                 </ul>
+                
             </div>
             <!-- /.navbar-collapse -->
         </div>

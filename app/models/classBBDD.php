@@ -106,6 +106,12 @@ Class Db {
             $sql = "DELETE FROM TAREA WHERE idtarea = ".$registro;           
             return $this->link->query($sql);
         }
+        public function delete_usuario($registro)
+        {
+            $sql = "DELETE FROM usuario WHERE email = ".$registro;  
+            return $this->link->query($sql);
+        }
+       
 	         /**
 	 * Funcion la cual actualiza la tarea 
 	 * @param string $tabla tabla a operar
